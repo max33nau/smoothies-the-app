@@ -17,7 +17,9 @@ createView.saveRecipe = function() {};  //event handler for Save Recipe button
 
 createView.resetPage = function() {};  //deselect all ingredients, set quantities to 0
 
-createView.index = function() {};  //render page and set event handlers
+createView.index = function() {  //render page and set event handlers
+  $('#createContent').show().siblings().hide();
+};
 
 ***********************************************************************************************
 
@@ -31,7 +33,9 @@ recipesView.populateFilters = function() {};  //populate recipe search filter(s)
 recipesView.handleFilters = function() {};  //when user selects filter,
                                            //show and hide recipes accordingly
 
-recipesView.index = function() {};  //render page and set event handlers
+recipesView.index = function() {  //render page and set event handlers
+  $('#recipesContent').show().siblings().hide();
+};
 
 
 *IF recipe cards are previews w/ only ingredients + 'Click to show nutrition information':
@@ -39,5 +43,21 @@ recipesView.index = function() {};  //render page and set event handlers
 recipesView.showFullRecipe = function() {};  //show (or create) full recipe popup
 
 recipesView.hideFullRecipe = function() {};  //hide (or remove) full recipe popup
+
+***********************************************************************************************
+
+var findView = {};
+
+findView.index = function() {  //render page and set event handlers
+  $('#findContent').show().siblings().hide();
+};
+
+***********************************************************************************************
+
+var aboutView = {};
+
+aboutView.index = function() {  //render page and set event handlers
+  $('#aboutContent').show().siblings().hide();
+};
 
 */
