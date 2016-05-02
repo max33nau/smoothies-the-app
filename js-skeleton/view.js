@@ -17,6 +17,8 @@ createView.saveRecipe = function() {};  //event handler for Save Recipe button
 
 createView.resetPage = function() {};  //deselect all ingredients, set quantities to 0
 
+createView.index = function() {};  //render page and set event handlers
+
 ***********************************************************************************************
 
 var recipesView = {};
@@ -29,6 +31,7 @@ recipesView.populateFilters = function() {};  //populate recipe search filter(s)
 recipesView.handleFilters = function() {};  //when user selects filter,
                                            //show and hide recipes accordingly
 
+recipesView.index = function() {};  //render page and set event handlers
 
 
 *IF recipe cards are previews w/ only ingredients + 'Click to show nutrition information':
