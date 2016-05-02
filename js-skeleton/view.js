@@ -2,8 +2,6 @@
 
 var createView = {};
 
-createView.navigateTo = function() {};  //show create page
-
 createView.populateFilters = function() {};  //populate dietary goal filter(s)
 
 createView.handleFilters = function() {};  //when user selects filter,
@@ -17,7 +15,7 @@ createView.saveRecipe = function() {};  //event handler for Save Recipe button
 
 createView.resetPage = function() {};  //deselect all ingredients, set quantities to 0
 
-createView.index = function() {  //render page and set event handlers
+createView.renderPage = function() {  //render page and set event handlers
   $('#createContent').show().siblings().hide();
 };
 
@@ -25,15 +23,13 @@ createView.index = function() {  //render page and set event handlers
 
 var recipesView = {};
 
-recipesView.navigateTo = function() {};  //show recipes page
-
 recipesView.populateFilters = function() {};  //populate recipe search filter(s)
                                              //with only ingredients in >=1 user Recipe
 
 recipesView.handleFilters = function() {};  //when user selects filter,
                                            //show and hide recipes accordingly
 
-recipesView.index = function() {  //render page and set event handlers
+recipesView.renderPage = function() {  //render page and set event handlers
   $('#recipesContent').show().siblings().hide();
 };
 
@@ -48,7 +44,7 @@ recipesView.hideFullRecipe = function() {};  //hide (or remove) full recipe popu
 
 var findView = {};
 
-findView.index = function() {  //render page and set event handlers
+findView.renderPage = function() {  //render page and set event handlers
   $('#findContent').show().siblings().hide();
 };
 
@@ -56,7 +52,7 @@ findView.index = function() {  //render page and set event handlers
 
 var aboutView = {};
 
-aboutView.index = function() {  //render page and set event handlers
+aboutView.renderPage = function() {  //render page and set event handlers
   $('#aboutContent').show().siblings().hide();
 };
 
