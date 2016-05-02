@@ -27,18 +27,18 @@
   left:0;
 }*/
 .mainNav{
-  margin-right: 0px;
   width: 47%;
 }
 header{
-  width: 92%;
+  position: fixed;
+ }
+#headerWrapper{
+  width: 100%;  
   min-width: 375px;
-  margin-right: 0px;
-  margin-left: 10px;
+  margin-left: 2%;
   display: flex;
   justify-content: space-between;
   position: fixed;
-  max-width: 1024px;
 }
 li{
    color: white;
@@ -65,8 +65,7 @@ nav li:nth-child(3){
 nav ul{
  display: flex;
  justify-content: flex-end;
- margin:0px;
- max-width: 350px;
+ margin-right:10%;
 }
 #logoWrapper{
   width: 40%;
@@ -76,7 +75,7 @@ nav ul{
   width: 180px;
   height: auto;
 }
-.mainContent{
+.mainContentMobile{
   position: relative;
   top: 70px;
   height: 230px;
@@ -156,5 +155,11 @@ footer li{
  #blenderLarge{
    display: none;
  }
-
+.mainContentWeb{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+    
+}
 
