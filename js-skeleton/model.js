@@ -1,13 +1,4 @@
-/*
-
-V.	Create
-  a.	Check for ingredients database
-    i.	If exists:
-      1.	Use data to create Ingredient objects
-    ii.	If doesn’t:
-      1.	Retrieve nutrient info from API
-      2.	Create ingredients database
-      3.	Use data to create Ingredient objects
+/* 'MODEL' FUNCTIONALITY POSSIBLY NEEDED FOR APP
 
 var Ingredient = function() {};  //object constructor
 
