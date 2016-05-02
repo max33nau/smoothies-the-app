@@ -1,0 +1,43 @@
+@media only screen and (min-width : 376px) {
+  #byline{
+  display:block;
+}
+  #ingredientsList{
+    display: none;
+  }
+  
+
+
+  
+}
+
+@media only screen and (min-width : 500px) {
+  #blenderSmall{
+  display:none;
+  }
+  #blenderLarge{
+    display: block;
+  }
+  .userInput{
+  height: 225px;
+ }
+ .mainContent{
+   height:150px;
+ }
+ #blenderLarge{
+   margin:auto;
+ }
+ #buttons{
+   width: 85%;
+ }
+ #logo{
+  width: 280px;
+  height: auto;
+}
+header{
+  
+}
+
+}
+
+

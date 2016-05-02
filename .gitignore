@@ -1,2 +1,12 @@
+# Logs
+logs
+*.log
 .DS_Store
-**/node_modules
+
+# Secrets
+**/githubToken.js
+**/starter_code
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules/**
