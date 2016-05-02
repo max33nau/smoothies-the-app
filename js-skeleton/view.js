@@ -1,4 +1,4 @@
-/*
+/* 'VIEW' FUNCTIONALITY POSSIBLY NEEDED FOR APP
 
 var createView = {};
 
