@@ -1,13 +1,143 @@
 *{
   font-size: 1em;
-  line-height:1.4;
   box-sizing: border-box;
-  margin: 0px;  
+  margin-top: 0px;
+  margin-left: 0px;
+  padding: 0px;
+ }
+ body{
+   font-family: corbel, sans-serif;
+ }
+
+/*ul:after{
+  width: 3%;
+  max-width: 15px;
+  background-color: #db5800;
+  position: absolute;
+  float: left;
+  height: 100%;
+  top: 0;
+  left:0;
+}*/
+nav{
+  margin-right: 0px;
+  width: 47%;
+}
+header{
+  width: 100%;
+  min-width: 375px;
+  margin-right: 0px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
 }
 li{
+   color: white;
+   text-decoration: none;
+   list-style: none;
+   
+}
+nav li {
+ width: 33.34%;
+ max-width: 120px;
+ text-align: center;
+ padding-top: 25px;
+ font-weight: bold;
+ font-size: .8em;
+}
+nav li:nth-child(1){
+  background-color: #ff9000;
+}
+nav li:nth-child(2){
+  background-color: #db5800;
+}
+nav li:nth-child(3){
+  background-color: #8ea106;
+}
+nav ul{
+ display: flex;
+ justify-content: space-between;
+ margin:0px;
+ max-width: 350px;
+}
+
+#logoWrapper{
+  width: 50%;
+  height: auto;
+  float: left;
+}
+#logo{
+  width: 215px;
+  height: auto;
+}
+.mainContent{
+  position: relative;
+  top: 70px;
+  height: 230px;
+}
+#blenderSmall{
+  width: 80px;
+  height: auto;
+  margin-left: 10px;
+}
+
+#ingredListWrapper{
+  width: 90%;
+  margin: auto;
+  border: 1px solid #afa497;
+  height: 100px;
+  border-radius: 20px;
+}
+#ingrListHeader{
+  margin-left: 25px;
+  margin-top: -10px;
+  color: #afa497;
+  background-color: white;
+  width: 40%;
+  padding-left: 5px;
+  font-size: .9em;
+}
+.userInput{
+  background-color: #12a89d;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  margin-top: 10px;
+ }
+#buttons{
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin: auto;
+}
+button{
+  background-color: #ff9000;
+  color: white;
+  font-size: .7em;
+  text-align: center;
   text-decoration: none;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-top: 8px;
+ }
+footer{
+  background-color: #afa497;
+  border-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
 }
-#mainNav{
-  
+footer ul{
+  display: flex;
+  justify-content: flex-end;
+  font-size: .85em;
+  margin-right: 5px;
 }
+footer li{
+  padding-right: 10px;
+  padding-top: 4px;
+}
+
 
