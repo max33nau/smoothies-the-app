@@ -14,4 +14,5 @@
     page();
   };
 
+  module.router = router;
 }(window));
