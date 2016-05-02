@@ -7,6 +7,13 @@
  }
  body{
    font-family: corbel, sans-serif;
+   max-width: 1024px;
+ }
+ #redLine{
+   float: left;
+   background-color: #db5800;
+   height: 667px;
+   width: 10px;
  }
 
 /*ul:after{
@@ -19,23 +26,24 @@
   top: 0;
   left:0;
 }*/
-nav{
+.mainNav{
   margin-right: 0px;
   width: 47%;
 }
 header{
-  width: 100%;
+  width: 92%;
   min-width: 375px;
   margin-right: 0px;
+  margin-left: 10px;
   display: flex;
   justify-content: space-between;
   position: fixed;
+  max-width: 1024px;
 }
 li{
    color: white;
    text-decoration: none;
    list-style: none;
-   
 }
 nav li {
  width: 33.34%;
@@ -56,18 +64,16 @@ nav li:nth-child(3){
 }
 nav ul{
  display: flex;
- justify-content: space-between;
+ justify-content: flex-end;
  margin:0px;
  max-width: 350px;
 }
-
 #logoWrapper{
-  width: 50%;
+  width: 40%;
   height: auto;
-  float: left;
 }
 #logo{
-  width: 215px;
+  width: 180px;
   height: auto;
 }
 .mainContent{
@@ -80,7 +86,6 @@ nav ul{
   height: auto;
   margin-left: 10px;
 }
-
 #ingredListWrapper{
   width: 90%;
   margin: auto;
@@ -100,6 +105,7 @@ nav ul{
 .userInput{
   background-color: #12a89d;
   width: 100%;
+  max-width: 1024px;
   height: 500px;
   text-align: center;
   margin-top: 10px;
@@ -122,7 +128,7 @@ button{
   margin-top: 8px;
  }
 footer{
-  background-color: #afa497;
+  background-color: #978b7b;
   border-bottom: 0px;
   position: fixed;
   width: 100%;
@@ -139,5 +145,16 @@ footer li{
   padding-right: 10px;
   padding-top: 4px;
 }
+#byline{
+  display:none;
+  position: fixed;
+  top: 60px;
+  left: 15px;
+  color: #978b7b;
+  
+}
+ #blenderLarge{
+   display: none;
+ }
 
 
