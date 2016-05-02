@@ -25,9 +25,9 @@
           </div>
           <nav class='mainNav'>
             <ul>
-              <li>CREATE</li>
-              <li>RECIPES</li>
-              <li>FIND</li>
+              <a href="/create"><li>CREATE</li></a>
+              <a href="/recipes"><li>RECIPES</li></a>
+              <a href="/find"><li>FIND</li></a>
             </ul>
           </nav>
         </div>
@@ -71,13 +71,13 @@
             </section>
           </section> <!--#output-->
         </section> <!--#createContent-->
-        
+
       </section> <!--#mainContent-->
 
       <footer>
         <ul id='ulFooter'>
-          <li>Resources</li>
-          <li>About</li>
+          <!-- <li>Resources</li> -->
+          <a href="/about"><li>About</li></a>
         </ul>
       </footer>
 
@@ -85,7 +85,23 @@
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.min.js"></script>-->
     <!--<script src="/vendor/scripts/html5sql.js"></script>
     <script src="/scripts/webdb.js"></script>-->
-    <!--<script src="/vendor/scripts/page.js"></script>-->
+    <script src="vendor/page.js"></script>
+
+    <script src="scripts/create.js"></script>
+    <script src="scripts/createView.js"></script>
+    <script src="scripts/createController.js"></script>
+    <script src="scripts/recipes.js"></script>
+    <script src="scripts/recipesView.js"></script>
+    <script src="scripts/recipesController.js"></script>
+    <script src="scripts/aboutView.js"></script>
+    <script src="scripts/aboutController.js"></script>
+    <script src="scripts/findView.js"></script>
+    <script src="scripts/findController.js"></script>
+    <script src="scripts/route.js"></script>
+
+    <script>
+      router.setMapping();
+    </script>
 
   </body>
 </html>
