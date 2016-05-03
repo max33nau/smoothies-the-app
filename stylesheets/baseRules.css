@@ -26,10 +26,10 @@
 
 header {
   width: 100%;
-  margin-left: 2%;
   display: flex;
   justify-content: space-between;
   position: fixed;
+  padding: 0 3% 0 3%;
 }
 
 li {
@@ -62,12 +62,12 @@ nav li:nth-child(3) {
 nav ul {
  display: flex;
  justify-content: flex-end;
- margin-right:10%;
 }
 
 #logoWrapper {
   width: 40%;
   height: auto;
+  margin-left: 8px;
 }
 
 #logo {
@@ -155,6 +155,10 @@ button {
   min-height: 130px;
 }
 
+#output p {
+  padding-left: 110px;
+}
+
 #blenderLarge {
   width: 70px;
   height: 130px;
@@ -165,7 +169,7 @@ button {
 #selectedList {
   width: 90%;
   min-width: 250px;
-  margin: 0 auto 30px auto;
+  margin: 25px auto 25px auto;
   border: 1px solid #afa497;
   height: 100px;
   border-radius: 20px;
