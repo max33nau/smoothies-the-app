@@ -12,7 +12,7 @@
  #output{
    top: 105px;
   }
- 
+
  #blenderLarge{
    width: 300px;
    height: auto;
@@ -26,7 +26,7 @@
  }
  #input{
    padding-left: 200px;
-   height: 42%;
+   height: auto;
    top: 260px;
  }
  #input h1{
@@ -54,6 +54,3 @@
   width: 60%;
   margin-left: 370px;
 }
-
-
-
