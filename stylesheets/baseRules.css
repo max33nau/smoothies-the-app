@@ -66,60 +66,107 @@ nav ul{
   width: 180px;
   height: auto;
 }
+/*end header section*/
+
+/*start "input section" */
 #input{
   position:absolute;
-  top: 35%;
+  top: 310px;
   width: 100%;
+  min-width: 250px;
   height: 100%;
   background-color: #12a89d;
   text-align: left;
-  padding-top: 15px;
+  /*padding-top: 15px;*/
   /*overflow-y:  scroll;*/
 }
-#input ul{
+#buttons{
+ text-align: center;
+ /*word-spacing: 1em; */
+ width: 100%;
+ max-width: 375px;
+ min-width: 122.86px;
+ margin:auto;
+}
+button{
+  background-color: #ff9000;
   color: white;
+  font-size: .8em;
+  /*text-align: center;*/
+  text-decoration: none;
+  padding: 5px;
+  border: none;
+  padding: 7px 0 7px 0;
+  /*border-radius: 5px;*/
+  /*margin-top: 8px;*/
+ }
+button{
+  width: 122.86px;
+  /*font-size: 1.1em;*/
+}
+
+/*accordian layout*/
+#accordion{
+  margin-top: 20px;
+  /*max-width: 375px;*/
+  margin: auto;
+}
+#input h1{
+  color: #12a89d;
   font-weight: bold;
   font-size: 1.1em;
-  margin-left: 25px;
+  /*margin-left: 5px;*/
+  border-bottom: 2px solid white;
+  width: 100%;
+  padding: 10px 0 10px 15px;
+  background-color: #97dcd2;
+  margin-bottom: 0;
 }
-#input li{
-  height: 100px;
+#input h1:last-of-type{
+  border-bottom: none;
+}
+
+#input li{    
+  /*height: 200px;*/
   background-color: white;
   width: 90%;
   margin-left: 20px;
-  margin-top: -18px;
-  margin-bottom: 25px;
-  border: 1px solid #978b7b;
-  border-radius: 10px;
-  
+  border-radius: 3px; 
+  color: black; 
 }
+/*end accordian layout*/
 
 
+/*start of output section */
 #output{
-  
+  position: relative;
+  top: 55px;
 }
 #blenderLarge{
-  width: 80px;
+  width: 70px;
   height: auto;
   float: left;
-  
+  margin-left: 25px;
 }
 
-/*#ingredListWrapper{
+#selectedList{
+  position: relative;
   width: 90%;
+  min-width: 250px;
   margin: auto;
   border: 1px solid #afa497;
   height: 100px;
   border-radius: 20px;
+  top: 45px;
 }
-#ingrListHeader{
+#output h2{
   margin-left: 25px;
   margin-top: -10px;
   color: #afa497;
   background-color: white;
-  width: 40%;
-  padding-left: 5px;
+  width: 150px;
   font-size: .9em;
+
 }
 .userInput{
   background-color: #12a89d;
@@ -135,17 +182,7 @@ nav ul{
   width: 70%;
   margin: auto;
 }*/
-button{
-  background-color: #ff9000;
-  color: white;
-  font-size: .7em;
-  text-align: center;
-  text-decoration: none;
-  padding: 5px;
-  border: 1px solid white;
-  border-radius: 5px;
-  margin-top: 8px;
- }
+
 footer{
   background-color: #978b7b;
   border-bottom: 0px;
@@ -168,10 +205,9 @@ footer li{
 #byline{
   display:none;
   position: fixed;
-  top: 60px;
+  top: 40px;
   left: 15px;
   color: #978b7b;
-  
 }
 
 

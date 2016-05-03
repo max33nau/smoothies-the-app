@@ -34,11 +34,10 @@
       <section id='mainContent'>
 
         <section id="createContent">
-          <button id='btnReset'>Reset</button>
-
-          <section id="input">
+         <section id="input">
             <div id='buttons'>
               <button id='seeFullLabel'>See Full Label</button>
+              <button id='btnReset'>Reset</button>
               <button id='saveRecipes'>Save Recipes</button>
             </div>
              
@@ -79,7 +78,7 @@
                     <li>some fake stuff to see if it's working</li>
                   </ul>
                 </div>
-            </div>
+            </div>  <!--end accordion-->
          </section> <!--#input-->
 
           <section id="output">
@@ -130,7 +129,8 @@
     <script> 
    $(function() {
     $( "#accordion" ).accordion({
-      collapsible: true
+      collapsible: true,
+      heightStyle: "content"
      });
   });
     </script>
