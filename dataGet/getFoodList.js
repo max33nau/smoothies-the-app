@@ -24,18 +24,22 @@ function get(offset){
 var filename = 'food-nutrients.json';
 
 function nutrient(ndbno, cb){
+  var label = '';
   var url = 'http://api.nal.usda.gov/ndb/reports/?ndbno=' +ndbno+ '&type=f&format=json&api_key=RN7DziGWb9pvZGRnMLAW9G3534a5rH7rrKSYWbRt';
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
       var nutrients = data.report.food.nutrients.map( function(nutrient){
-        var label = '';
+        label = ''; 
         if (nutrient.measures[0]){
           label=nutrient.measures[0].label;}
-        return {nutrient_id: nutrient.nutrient_id, portion: label, nutrient_name: nutrient.name, value: nutrient.value };
-      });
+        return {nutrient_id: nutrient.nutrient_id, nutrient_name: nutrient.name, value: nutrient.value };
+      })
+      // .filter(function(){
+      //   if(indexof(nutrients.nutrient_id))
+      // };
       
-      var result = { ndbno: ndbno, nutrients: nutrients };
+      var result = { ndbno: ndbno, portion: label,nutrients: nutrients };
         
       fs.appendFileSync( filename, JSON.stringify(result, true, 2) + ',' );
       cb();
@@ -67,3 +71,7 @@ function getNutrients(){
 }
 
 
+
+
+
+var nutrientsIWant = [309,430,573,323,326,325,328,324,401,415,578,418,320,318,404,269,307,317,405,203,306,304,505,213,303,211,212,431,291,605,606,646,645,268,208,312,321,205,301,262];
