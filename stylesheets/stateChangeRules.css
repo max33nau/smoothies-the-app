@@ -1,43 +1,59 @@
-@media only screen and (min-width : 376px) {
-  #byline{
-  display:block;
-}
-  #ingredientsList{
-    display: none;
-  }
-  
-
-
-  
-}
-
 @media only screen and (min-width : 500px) {
-  #blenderSmall{
-  display:none;
-  }
-  #blenderLarge{
+  #byline{
     display: block;
   }
-  .userInput{
+
+  /*.userInput{
   height: 225px;
  }
- .mainContent{
+ .createContent{
    height:150px;
- }
+ }*/
+ #output{
+   top: 105px;
+  }
+ 
  #blenderLarge{
-   margin:auto;
+   width: 300px;
+   height: auto;
+   float: inherit;
+   margin-left: 50px;
+   margin-top: 25px;
  }
- #buttons{
+ #nutritionFacts{
+   width: 25%;
+   margin-top: -450px;
+ }
+ #input{
+   padding-left: 200px;
+   height: 42%;
+   top: 260px;
+ }
+ #input h1{
+   padding-left: 170px;
+ }
+ #accordian{
+  margin-top: 30px;
+ }
+
+ /*#buttons{
    width: 85%;
- }
+ }*/
  #logo{
   width: 280px;
   height: auto;
-}
-header{
-  
+  margin-left: 5px;
 }
 
+#nutritionFacts{
+  margin-top: -450px;
+  margin-left: 100px;
 }
+#selectedList{
+  top: -200px;
+  width: 60%;
+  margin-left: 370px;
+}
+
 
 
