@@ -8,7 +8,6 @@
  body{
    font-family: corbel, sans-serif;
    max-width: 1024px;
-   text-align: center;
  }
  #redLine{
    float: left;
@@ -73,15 +72,15 @@ nav ul{
   position:absolute;
   top: 310px;
   width: 100%;
+  height: 53%;
   min-width: 250px;
-  height: 100%;
   background-color: #12a89d;
   text-align: left;
   /*padding-top: 15px;*/
   /*overflow-y:  scroll;*/
 }
 #buttons{
- text-align: center;
+ 
  /*word-spacing: 1em; */
  width: 100%;
  max-width: 375px;
@@ -92,24 +91,19 @@ button{
   background-color: #ff9000;
   color: white;
   font-size: .8em;
-  /*text-align: center;*/
   text-decoration: none;
   padding: 5px;
-  border: none;
-  padding: 7px 0 7px 0;
+  border: 1px solid white;
+  padding: 4px 0 4px 0;
+   width: 122.86px;
   /*border-radius: 5px;*/
   /*margin-top: 8px;*/
  }
-button{
-  width: 122.86px;
-  /*font-size: 1.1em;*/
-}
 
 /*accordian layout*/
 #accordion{
-  margin-top: 20px;
   /*max-width: 375px;*/
-  margin: auto;
+  margin-top: 10px;
 }
 #input h1{
   color: #12a89d;
@@ -118,13 +112,13 @@ button{
   /*margin-left: 5px;*/
   border-bottom: 2px solid white;
   width: 100%;
-  padding: 10px 0 10px 15px;
+  padding: 7px 0 7px 20px;
   background-color: #97dcd2;
-  margin-bottom: 0;
+  margin-bottom: 8px;
 }
-#input h1:last-of-type{
+/*#input h1:last-of-type{
   border-bottom: none;
-}
+}*/
 
 #input li{    
   /*height: 200px;*/
@@ -172,7 +166,6 @@ button{
   background-color: #12a89d;
   width: 100%;
   max-width: 1024px;
-  height: 500px;
   text-align: center;
   margin-top: 10px;
  }
@@ -181,7 +174,7 @@ button{
   justify-content: space-around;
   width: 70%;
   margin: auto;
-}*/
+}
 
 footer{
   background-color: #978b7b;
@@ -205,8 +198,8 @@ footer li{
 #byline{
   display:none;
   position: fixed;
-  top: 40px;
-  left: 15px;
+  top: 70px;
+  left: 45px;
   color: #978b7b;
 }
 
