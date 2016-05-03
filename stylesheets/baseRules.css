@@ -28,16 +28,19 @@
 
 header {
   width: 100%;
+  height: 55px;
   display: flex;
   justify-content: space-between;
   position: fixed;
   padding: 0 3% 0 3%;
+  background-color: white;
+  box-shadow: 0px 0px 6px lightgray;
 }
 
 li {
-   color: white;
-   text-decoration: none;
-   list-style: none;
+ color: white;
+ text-decoration: none;
+ list-style: none;
 }
 
 nav li {
@@ -71,19 +74,20 @@ nav ul {
 
 #logoWrapper {
   width: 40%;
-  height: auto;
-  margin-left: 8px;
+  height: 100%;
+  margin: auto 0 auto 8px;
+  padding: auto 0 auto 0;
 }
 
 #logo {
   width: 180px;
-  height: auto;
+  height: 100%;
 }
 /*end header section*/
 
 #mainContent {
   width: 100%;
-  padding-top: 70px;
+  padding-top: 80px;
 }
 
 #createContent {
@@ -114,12 +118,10 @@ button {
   color: white;
   font-size: .8em;
   text-decoration: none;
-  padding: 5px;
   border: 1px solid white;
   padding: 4px 0 4px 0;
-   width: 122.86px;
-  /*border-radius: 5px;*/
-  /*margin-top: 8px;*/
+  width: 122.86px;
+  margin: 0 5px;
  }
 
 /*accordian layout*/
@@ -144,13 +146,16 @@ button {
 }*/
 
 #input li {
-  /*height: 200px;*/
   background-color: white;
-  width: 90%;
-  margin-left: 20px;
-  border-radius: 3px;
-  color: black;
+  width: 100%;
+  margin: 0 auto 0 auto;
+  height: 30px;
+  padding-left: 20px;
+  color: #12a89d;
+  display: flex;
+  align-items: center;
 }
+
 /*end accordian layout*/
 
 
