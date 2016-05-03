@@ -8,7 +8,7 @@
     <link rel='stylesheet' href='stylesheets/stateChangeRules.css' />
     <link rel='stylesheet' href='stylesheets/modules.css' />
     <link rel="stylesheet" href="">
-
+   
     <!--<script id="nutrition-template" type="text/x-handlebars-template">
       <h2 id='calories'>{{Calories}}</h2>
       {{each}}
@@ -41,23 +41,46 @@
               <button id='seeFullLabel'>See Full Label</button>
               <button id='saveRecipes'>Save Recipes</button>
             </div>
-            <div id="ingredientsLeft">
-              <ul id="fruits">FRUITS</ul>
-                <li></li>
-              <ul>VEGGIES</ul>
-                <li></li>
-              <ul>SWEETNERS & HERBS</ul>
-                <li></li>
+             
+          <div id="accordion">
+            <h1>FRUITS</h1>
+              <div>
+                <ul>
+                  <li>some fake stuff to see if it's working</li>
+                </ul>
+              </div>
+            <h1>VEGGIES</h1>
+              <div>
+                  <ul>
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            <h1>SWEETNERS & HERBS</h1>
+                <div>
+                  <ul>
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            <h1>NUTS & SEEDS</h1>
+                <div>
+                  <ul>
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            <h1>LIQUIDS</h1>
+                <div>
+                  <ul>
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            <h1>FATS & PROTEINS</h1>
+                <div>
+                  <ul>
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
             </div>
-            <div id="ingredientsRight">
-              <ul>NUTS & SEEDS</ul>
-                <li></li>
-              <ul>LIQUIDS</ul>
-                <li></li>
-              <ul>FATS & PROTEINS</ul>
-                <li></li>
-            </div>
-          </section> <!--#input-->
+         </section> <!--#input-->
 
           <section id="output">
             <div id='imgBlender'>
@@ -85,7 +108,8 @@
         </ul>
       </footer>
 
-    <!--<script src="scripts/jquery-2.1.4.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.min.js"></script>-->
     <!--<script src="/vendor/scripts/html5sql.js"></script>
     <script src="/scripts/webdb.js"></script>-->
@@ -101,9 +125,16 @@
     <script src="scripts/aboutController.js"></script>
     <script src="scripts/findView.js"></script>
     <script src="scripts/findController.js"></script>
-    <script src="scripts/route.js"></script>
-    <script src="scripts/kimTemp.js"></script>
-
+    <!--<script src="scripts/route.js"></script>-->
+    
+    <script> 
+   $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+     });
+  });
+    </script>
+    
     <script>
       router.setMapping();
     </script>
