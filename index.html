@@ -17,26 +17,24 @@
     </script>-->
   </head>
   <body>
-    <div id="redLine"></div>
+     <div id="redLine"></div>
      <header>
-       <div id='headerWrapper'>
-          <div id="logoWrapper">
-              <img id='logo' src='images/logo.png'/>
-          </div>
-          <nav class='mainNav'>
-            <ul>
-              <a href="/create"><li>CREATE</li></a>
-              <a href="/recipes"><li>RECIPES</li></a>
-              <a href="/find"><li>FIND</li></a>
-            </ul>
-          </nav>
+        <div id="logoWrapper">
+          <img id='logo' src='images/logo.png'/>
         </div>
+        <nav class='mainNav'>
+          <ul>
+           <li><a href="/create"></a>CREATE</li>
+           <li><a href="/recipes"></a>RECIPES</li>
+           <li><a href="/find"></a>FIND</li>
+          </ul>
+        </nav>
       </header>
        <p id='byline'>KNOW WHAT YOU DRINK</p>
       <section id='mainContent'>
 
         <section id="createContent">
-          <button>Reset</button>
+          <button id='btnReset'>Reset</button>
 
           <section id="input">
             <div id='buttons'>
@@ -44,14 +42,20 @@
               <button id='saveRecipes'>Save Recipes</button>
             </div>
             <div id="ingredientsLeft">
-              <ul>Fruits</ul>
-              <ul>Veggies</ul>
-              <ul>Sweeteners & Herbs</ul>
+              <ul id="fruits">FRUITS</ul>
+                <li></li>
+              <ul>VEGGIES</ul>
+                <li></li>
+              <ul>SWEETNERS & HERBS</ul>
+                <li></li>
             </div>
             <div id="ingredientsRight">
-              <ul>Nuts & Seeds</ul>
-              <ul>Liquids</ul>
-              <ul>Fats & Proteins</ul>
+              <ul>NUTS & SEEDS</ul>
+                <li></li>
+              <ul>LIQUIDS</ul>
+                <li></li>
+              <ul>FATS & PROTEINS</ul>
+                <li></li>
             </div>
           </section> <!--#input-->
 
@@ -73,7 +77,7 @@
         </section> <!--#createContent-->
 
       </section> <!--#mainContent-->
-
+     
       <footer>
         <ul id='ulFooter'>
           <!-- <li>Resources</li> -->
@@ -98,6 +102,7 @@
     <script src="scripts/findView.js"></script>
     <script src="scripts/findController.js"></script>
     <script src="scripts/route.js"></script>
+    <script src="scripts/kimTemp.js"></script>
 
     <script>
       router.setMapping();
