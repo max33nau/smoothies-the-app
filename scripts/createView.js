@@ -6,7 +6,15 @@
   createView.currentRecipe = {};
 
   //populate accordion drop-downs with ingredients
-  createView.populateAccordion = function() {};
+  createView.populateAccordion = function(dataArray) {
+    var $accordionTemplate = $('#accordionTemplate');
+    var compiled = Handlebars.compile($accordionTemplate.html());
+
+    dataArray.forEach(function(ingr){
+      $("#"+ ingr.foodGroup ).append(compiled(ingr));    
+    });
+  };    
+
 
   //set event listeners for accordion drop-down options (ingredients)
   createView.handleAccordion = function() {};
@@ -40,18 +48,10 @@
 
 
 
-//kim workspace...
 
-var $accordionTemplate = $('#accordionTemplate');
-var compiled = Handlebars.compile($accordionTemplate.html());
 
-  createView.callHandlebars = function(dataArray){
-    
-    dataArray.forEach(function(ingr){
-      $("#"+ ingr.foodGroup ).append(compiled(ingr));    
-    });
-  }
 
+//temporary hide to keep clean workspace REMOVE! WHEN COMPLETE
 $('#aboutContent').hide();
 $('#recipesContent').hide();
 

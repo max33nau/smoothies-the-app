@@ -20,8 +20,7 @@
     
         Ingredient.createArray(Ingredient.rawData, Ingredient.nutrientData);  //calling funciton to create array
         callback(Ingredient.all);
-        // console.log("hello");
-    });
+      });
     });
   };
 //method to pull data from various datasets into a single array of ingredient objects, with one nutrient property that is an array.
@@ -42,9 +41,9 @@
       });
       return newIngredObj;
     });
-   };
+  };
   
-  Ingredient.compileAll(createView.callHandlebars);
+  Ingredient.compileAll(createView.populateAccordion);
     
   module.Ingredient = Ingredient;
 }(window));
