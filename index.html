@@ -8,52 +8,81 @@
     <link rel='stylesheet' href='stylesheets/stateChangeRules.css' />
     <link rel='stylesheet' href='stylesheets/modules.css' />
     <link rel="stylesheet" href="">
-
-    <!--<script id="nutrition-template" type="text/x-handlebars-template">
-      <h2 id='calories'>{{Calories}}</h2>
-      {{each}}
-      <li>{{this}}</li>
+   
+    <script id="ingredTemplate" type="text/x-handlebars-template">
+     {{#each Ingredient}}
+     <li>{{@key}} : {{this}}</li>
+     {{/each}}
+     
+      {{#each Ingredient}}
+      <li>{{name}}</li>
       {{/each}}
-    </script>-->
+    </script>
   </head>
   <body>
-    <div id="redLine"></div>
+     <div id="redLine"></div>
      <header>
-       <div id='headerWrapper'>
-          <div id="logoWrapper">
-              <img id='logo' src='images/logo.png'/>
-          </div>
-          <nav class='mainNav'>
-            <ul>
-              <a href="/create"><li>CREATE</li></a>
-              <a href="/recipes"><li>RECIPES</li></a>
-              <a href="/find"><li>FIND</li></a>
-            </ul>
-          </nav>
+        <div id="logoWrapper">
+          <img id='logo' src='images/logo.png'/>
         </div>
+        <nav class='mainNav'>
+          <ul>
+           <li><a href="/create"></a>CREATE</li>
+           <li><a href="/recipes"></a>RECIPES</li>
+           <li><a href="/find"></a>FIND</li>
+          </ul>
+        </nav>
       </header>
        <p id='byline'>KNOW WHAT YOU DRINK</p>
       <section id='mainContent'>
 
         <section id="createContent">
-          <button>Reset</button>
-
-          <section id="input">
+         <section id="input">
             <div id='buttons'>
               <button id='seeFullLabel'>See Full Label</button>
+              <button id='btnReset'>Reset</button>
               <button id='saveRecipes'>Save Recipes</button>
             </div>
-            <div id="ingredientsLeft">
-              <ul>Fruits</ul>
-              <ul>Veggies</ul>
-              <ul>Sweeteners & Herbs</ul>
-            </div>
-            <div id="ingredientsRight">
-              <ul>Nuts & Seeds</ul>
-              <ul>Liquids</ul>
-              <ul>Fats & Proteins</ul>
-            </div>
-          </section> <!--#input-->
+             
+          <div id="accordion">
+            <h1 >FRUITS</h1>
+              <div>
+                <ul id="fruits">
+                  <li>some fake stuff to see if it's working</li>
+                </ul>
+              </div>
+            <h1>VEGGIES</h1>
+              <div>
+                  <ul id="veggies">
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            <h1>SWEETENERS & HERBS</h1>
+                <div>
+                  <ul id="sweetners">
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            <h1>NUTS & SEEDS</h1>
+                <div>
+                  <ul id="nuts">
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            <h1>LIQUIDS</h1>
+                <div>
+                  <ul id="liquids">
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            <h1>FATS & PROTEINS</h1>
+                <div>
+                  <ul id="fats">
+                    <li>some fake stuff to see if it's working</li>
+                  </ul>
+                </div>
+            </div>  <!--end accordion-->
+         </section> <!--#input-->
 
           <section id="output">
             <div id='imgBlender'>
@@ -73,7 +102,7 @@
         </section> <!--#createContent-->
 
       </section> <!--#mainContent-->
-
+     
       <footer>
         <ul id='ulFooter'>
           <!-- <li>Resources</li> -->
@@ -81,8 +110,9 @@
         </ul>
       </footer>
 
-    <!--<script src="scripts/jquery-2.1.4.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.min.js"></script>-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <!--<script src="/vendor/scripts/html5sql.js"></script>
     <script src="/scripts/webdb.js"></script>-->
     <script src="vendor/page.js"></script>
@@ -97,8 +127,18 @@
     <script src="scripts/aboutController.js"></script>
     <script src="scripts/findView.js"></script>
     <script src="scripts/findController.js"></script>
-    <script src="scripts/route.js"></script>
-
+    <script src="scripts/kimTemp.js"></script>
+    <!--<script src="scripts/route.js"></script>-->
+    
+    <script> 
+   $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true,
+      heightStyle: "content"
+     });
+  });
+    </script>
+    
     <script>
       router.setMapping();
     </script>
