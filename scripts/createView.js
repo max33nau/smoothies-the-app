@@ -1,21 +1,39 @@
 (function(module) {
 
+  //object to store current recipe ingredients and nutrition information
+  var currentRecipe = {};
+
   var createView = {};
 
-  createView.populateFilters = function() {};  //populate dietary goal filter(s)
+  //populate accordion drop-downs with ingredients
+  createView.populateAccordion = function() {};
 
-  createView.handleFilters = function() {};  //when user selects filter,
-                                             //highlight ingredients accordingly
+  //set event listeners for accordion drop-down options (ingredients)
+  createView.handleAccordion = function() {};
 
-  createView.showFullLabel = function() {};  //show (or create) full label popup
+  //set event listeners for X and quantity multiplier for selected ingredients
+  createView.handleSelectedIngredients = function() {};
 
-  createView.hideFullLabel = function() {};  //hide (or remove) full label popup
+  //when ingredient added or removed or quantity changed, update ingredients AND nutrition info
+  createView.updateCurrentRecipe = function() {};
 
-  createView.saveRecipe = function() {};  //event handler for Save Recipe button
+  //render partial nutrition label based on latest currentRecipe info
+  createView.renderPartialLabel = function() {};
 
-  createView.resetPage = function() {};  //deselect all ingredients, set quantities to 0
+  //show (or create) full label popup based on latest currentRecipe info
+  createView.showFullLabel = function() {};
 
-  createView.renderPage = function() {  //render page and set event handlers
+  //hide (or remove) full label popup
+  createView.hideFullLabel = function() {};
+
+  //event handler for Save Recipe button
+  createView.saveRecipe = function() {};
+
+  //deselect all ingredients, set quantities to 0
+  createView.resetPage = function() {};
+
+  //render page and set event handlers
+  createView.renderPage = function() {
     $('#createContent').show().siblings().hide();
   };
 
