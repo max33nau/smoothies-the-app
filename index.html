@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="">
    
     <script id="ingredTemplate" type="text/x-handlebars-template">
-     {{#each Ingredient}}
-     <li>{{@key}} : {{this}}</li>
-     {{/each}}
-     
-      {{#each Ingredient}}
-      <li>{{name}}</li>
-      {{/each}}
+      <h1>{{foodGroup}}</h1>
+          <div>
+            <ul id="fruits">
+            {{#each ingredients}} 
+              <li>{{name}}, {{qty}}</li>
+            {{/each}}
+            </ul>
+          </div>
     </script>
 
     <script id="selected-ingredient-template" type="text/x-handlebars-template">

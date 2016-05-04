@@ -86,40 +86,30 @@
 
 
 
-//##############GATHERING & FORMATTING DATA!######################
 
-var IngredObj = {} ;
 
-$.getJSON('dataFiles/ingred.json').done(function(data){
-  IngredObj.all = data;
+//********here are the view items for main page******
+//IngredObj.finalArray is where data is housed.
+
+//object constructor from array
+// function Ingredient (opts){
+//   this.name: opts.name;
   
-  $.getJSON('dataFiles/nutrient-v2.json').done(function(data){
-    IngredObj.nutrients = data[0];  
-    
-    manipulateData(IngredObj.all, IngredObj.nutrients);
-    console.log(IngredObj.finalArray);
-  });
-});
+// }
 
-var arrNutrients = ["Water", "Calories", "Protein", "Lipids", "Carbohydrate", "Fiber", "Sugars", "Calcium", "Iron", "Magnesium", "Phosphorus", "Potassium", "Sodium", "Zinc", "Copper", "Manganesium", "Vitamin C", "Thiamin", "Riboflavin", "Niacin", "Vitamin B6", "Folic Acid", "Vitamin B12", "Vitamin A", "Beta Carotine", "Vitamin E", "Vitamin D", "Vitamin K", "Fat: Saturated", "Fat: Monounsaturated", "Fat: Polyunsaturated", "Cholesterol"];
 
-function manipulateData(ingredients, nutrients){
-  IngredObj.finalArray = ingredients.map(function(obj){
-    var newIngredObj = {};
-    newIngredObj.id = obj.id;
-    newIngredObj.name = obj.name;
-    newIngredObj.qty = obj.qty;
-    newIngredObj.unit = obj.unit;
-    newIngredObj.foodGroup = obj.foodGroup;
-    newIngredObj.nutrient = arrNutrients.map(function(nutrient){
-      var nutrientObj = {};
-      nutrientObj.name = nutrient;
-      nutrientObj.qty = obj[nutrient];
-      nutrientObj.unit = nutrients[nutrient];
-      return nutrientObj;
-    });
-    return newIngredObj;
-   
-  });  
-}
 
+// var ingredients;
+
+
+
+// var $accordion = $('accordion');
+
+
+
+
+// populateAccordion = function(ingredient){
+//   var template = Handlebars.compile($('ingredTemplate')).text();
+//   return template(ingredient);
+// };
+// $accordion.append(render(IngredObj.finalArray));
