@@ -89,14 +89,17 @@
     });
   };
 
-  //set event handler for recipe previews that renders full recipe (first removing any that was rendered previously)
-  // *Check that Recipe.all has recipes in it before enlarging one recipe (in case someone navigates to specific recipe page - smoothiesapp.com/recipes/tropical+tuesday - having never visited smoothiesapp.com/recipes).
+  //set event handler for recipe previews that renders full recipe
   recipesView.handleShowFullRecipe = function() {
-
+    $('.recipePreview button').on('click', function(e) {
+      console.log(e.target.parentElement.id);
+      
+    });
   };
 
+  //render full recipe (first removing any that was rendered previously)
   recipesView.showFull = function(recipe) {
-    
+
   };
 
   //show Recipes section, hiding all other "page" sections
@@ -112,6 +115,7 @@
   recipesView.populateFilters();
   recipesView.handleFilters();
   recipesView.showRecipePreviews();
+  recipesView.handleShowFullRecipe();
 
   module.recipesView = recipesView;
 }(window));
