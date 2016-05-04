@@ -1,7 +1,17 @@
 (function(module) {
 
   //object constructor
-  var Recipe = function() {};
+  /*
+  options = all the key-value pairs of the row passed in
+  Object.keys(options) returns an array of its (options') properties
+  anonymous function's params: e = current property; index = current property's index; keys = the array that's being traversed
+  .forEach takes function and (optional) value that dictates value to be used as 'this' in aforementioned function
+  */
+  var Recipe = function(options) {
+    Object.keys(options).forEach(function(e, index, keys) {
+      this[e] = options[e];
+    }, this);
+  };
 
   //to hold all Recipe objects
   Recipe.all = [];
