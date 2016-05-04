@@ -56,7 +56,7 @@
         Recipe.createAll(rows);
         callback();
       } else {
-        
+        $('#recipesContent p').text('You haven\'t saved any recipes yet. Click on the CREATE tab above to start concocting!');
       }
     });
   };
