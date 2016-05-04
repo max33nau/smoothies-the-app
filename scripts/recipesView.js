@@ -62,7 +62,15 @@
   };
 
   //when user selects filter, show and hide recipes accordingly
-  recipesView.handleFilters = function() {};
+  recipesView.handleFilters = function() {
+    /*
+      remove all recipes (previews and full) from page
+      iterate through Recipe.all; for each Recipe:
+        iterate through ingredients; determine index of filterBy ingredient
+          if index > -1, append templated recipe to #recipeCards
+    */
+    
+  };
 
   //render a recipe preview for each recipe in Recipe.all
   recipesView.showRecipePreviews = function() {

@@ -43,7 +43,7 @@
     </script>
 
     <script id="recipe-template" type="text/x-handlebars-template">
-      <section class="recipePreview">
+      <section id="{{name}}" class="recipePreview">
         <!--only show first three ingredients of .recipePreview using
             CSS: .recipePreview ul li:nth-child(n+4) {display: none;}-->
         <!--when full recipe is rendered, change class to "fullRecipe"
