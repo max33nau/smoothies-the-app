@@ -43,7 +43,11 @@
   };
 
   //create Recipe object for each row in DB and push to Recipe.all array
-  Recipe.createAll = function() {};
+  Recipe.createAll = function(rows) {
+    Recipe.all = rows.map(function(thisRow) {
+      return new Recipe(thisRow);
+    });
+  };
 
   //retrieve data from recipes DB if rows.length; call Recipe.createAll
   Recipe.retrieveAll = function() {};
