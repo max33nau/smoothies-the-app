@@ -11,7 +11,7 @@
   //set event listeners for accordion drop-down options (ingredients)
   createView.handleAccordion = function() {};
 
-  //set event listeners for X and quantity multiplier for selected ingredients
+  //set event listeners for each selected ingredient's X and quantity multiplier
   createView.handleSelectedIngredients = function() {};
 
   //when ingredient added or removed or quantity changed, update ingredients AND nutrition info
