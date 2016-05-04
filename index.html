@@ -32,11 +32,17 @@
     </script>
 
     <script id="recipe-preview-template" type="text/x-handlebars-template">
-      <h3>{{name}}</h3>
-      <ul>
-        <li></li>
-      </ul>
-      <p>See Full Recipe</p>
+      <section class="recipePreview">
+        <h3>{{name}}</h3>
+        <ul>Ingredients:
+        {{#each ingredients}}
+          <li>
+            <strong>{{quantity}}x</strong> {{portionQuantity}} {{portionUnit}} {{name}}
+          </li>
+        {{/each}}
+        </ul>
+        <p>See Full Recipe</p>
+      </section>
     </script>
 
     <!--<script id="nutrition-template" type="text/x-handlebars-template">
