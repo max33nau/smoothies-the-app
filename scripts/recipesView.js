@@ -63,26 +63,29 @@
 
   //when user selects filter, show and hide recipes accordingly
   recipesView.handleFilters = function() {
-    /*
-      remove all recipes (previews and full) from page
-      iterate through Recipe.all; for each Recipe:
-        iterate through ingredients; determine index of filterBy ingredient
-          if index > -1, append templated recipe to #recipeCards
-    */
     $('aside').on('change', 'select', function() {
       $('.recipe').remove();
 
       var filterBy = $(this).val();
       Recipe.all.forEach(function(thisRecipe) {
-        
+        thisRecipe.ingredients.forEach(function(thisIngredient) {
+          if (thisIngredient.name == filterBy) {
+            recipesView.appendRecipePreview(thisRecipe);
+          }
+        });
       });
     });
+  };
+
+  //append a single recipe to the #recipeCards section
+  recipesView.appendRecipePreview = function(recipe) {
+    $('#recipeCards').append(recipeTemplate(recipe));
   };
 
   //render a recipe preview for each recipe in Recipe.all
   recipesView.showRecipePreviews = function() {
     Recipe.all.forEach(function(thisRecipe) {
-      $('#recipeCards').append(recipeTemplate(thisRecipe));
+      recipesView.appendRecipePreview(thisRecipe);
     });
   };
 
