@@ -91,16 +91,27 @@
 
   //set event handler for recipe previews that renders full recipe (first removing any that was rendered previously)
   // *Check that Recipe.all has recipes in it before enlarging one recipe (in case someone navigates to specific recipe page - smoothiesapp.com/recipes/tropical+tuesday - having never visited smoothiesapp.com/recipes).
-  // *Also CHANGE URL to /recipes/nameOfSmoothie
-  recipesView.showFullRecipe = function() {};
+  recipesView.handleShowFullRecipe = function() {
+
+  };
+
+  recipesView.showFull = function(recipe) {
+    
+  };
 
   //show Recipes section, hiding all other "page" sections
   recipesView.renderPage = function() {
     $('#recipesContent').show().siblings().hide();
+    recipesView.showRecipePreviews();
+    recipesView.populateFilters();
+    recipesView.handleFilters();
+    recipesView.handleShowFullRecipe();
   };
 
+/*******!!!!!!!*****DELETE THESE CALLS!!! FOR TESTING ONLY!!!******!!!!!!!********/
   recipesView.populateFilters();
   recipesView.handleFilters();
   recipesView.showRecipePreviews();
+
   module.recipesView = recipesView;
 }(window));
