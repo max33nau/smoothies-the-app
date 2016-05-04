@@ -69,7 +69,14 @@
         iterate through ingredients; determine index of filterBy ingredient
           if index > -1, append templated recipe to #recipeCards
     */
-    
+    $('aside').on('change', 'select', function() {
+      $('.recipe').remove();
+
+      var filterBy = $(this).val();
+      Recipe.all.forEach(function(thisRecipe) {
+        
+      });
+    });
   };
 
   //render a recipe preview for each recipe in Recipe.all
@@ -81,6 +88,7 @@
 
   //set event handler for recipe previews that renders full recipe (first removing any that was rendered previously)
   // *Check that Recipe.all has recipes in it before enlarging one recipe (in case someone navigates to specific recipe page - smoothiesapp.com/recipes/tropical+tuesday - having never visited smoothiesapp.com/recipes).
+  // *Also CHANGE URL to /recipes/nameOfSmoothie
   recipesView.showFullRecipe = function() {};
 
   //show Recipes section, hiding all other "page" sections
@@ -89,6 +97,7 @@
   };
 
   recipesView.populateFilters();
+  recipesView.handleFilters();
   recipesView.showRecipePreviews();
   module.recipesView = recipesView;
 }(window));
