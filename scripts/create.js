@@ -1,18 +1,22 @@
 (function(module) {
 
-  var Ingredient = function() {};  //object constructor
+  //object constructor
+  var Ingredient = function() {};
 
-  Ingredient.all = [];  //to hold all Ingredient objects
+  //to hold all Ingredient objects
+  Ingredient.all = [];
 
-  Ingredient.createTable = function() {};  //create ingredients table in DB if not exists
+  //create ingredients table in DB if not exists
+  Ingredient.createTable = function() {};
 
-  Ingredient.insertTableRow = function() {};  //insert row in ingredients table for given Ingredient
+  //insert row in ingredients table for given Ingredient
+  Ingredient.insertTableRow = function() {};
 
-  Ingredient.createAll = function() {};  //create Ingredient object for each row in DB
-                                         //and push to Ingredient.all array
+  //create Ingredient object for each row in DB and push to Ingredient.all array
+  Ingredient.createAll = function() {};
 
-  Ingredient.retrieveAll = function() {};  //retrieve data from ingredients DB if rows.length
-                                           //else fetch JSON data and create Ingredients, rows
-                                           //in either case, call Ingredient.createAll
+  //retrieve data from ingredients DB if rows.length, else fetch JSON data and create Ingredients, rows; in either case, call Ingredient.createAll
+  Ingredient.retrieveAll = function() {};
 
+  module.Ingredient = Ingredient;
 }(window));

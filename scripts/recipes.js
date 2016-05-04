@@ -1,17 +1,22 @@
 (function(module) {
 
-  var Recipe = function() {};  //object constructor
+  //object constructor
+  var Recipe = function() {};
 
-  Recipe.all = [];  //to hold all Recipe objects
+  //to hold all Recipe objects
+  Recipe.all = [];
 
-  Recipe.createTable = function() {};  //create recipes table in DB if not exists
+  //create recipes table in DB if not exists
+  Recipe.createTable = function() {};
 
-  Recipe.insertTableRow = function() {};  //insert row in recipes table for given Recipe
+  //insert row in recipes table for given Recipe
+  Recipe.insertTableRow = function() {};
 
-  Recipe.createAll = function() {};  //create Recipe object for each row in DB
-                                     //and push to Recipe.all array
+  //create Recipe object for each row in DB and push to Recipe.all array
+  Recipe.createAll = function() {};
 
-  Recipe.retrieveAll = function() {};  //retrieve data from recipes DB if rows.length
-                                       //call Recipe.createAll
+  //retrieve data from recipes DB if rows.length; call Recipe.createAll
+  Recipe.retrieveAll = function() {};
 
+  module.Recipe = Recipe;
 }(window));

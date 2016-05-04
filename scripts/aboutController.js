@@ -6,4 +6,5 @@
     aboutView.renderPage();
   };
 
+  module.aboutController = aboutController;
 }(window));

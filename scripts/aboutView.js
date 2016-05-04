@@ -2,8 +2,10 @@
 
   var aboutView = {};
 
-  aboutView.renderPage = function() {  //render About page and set event handlers
+  //render About section and hide other "page" sections
+  aboutView.renderPage = function() {
     $('#aboutContent').show().siblings().hide();
   };
 
+  module.aboutView = aboutView;
 }(window));

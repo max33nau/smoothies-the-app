@@ -17,4 +17,5 @@
     $('#recipesContent').show().siblings().hide();
   };
 
+  module.recipesView = recipesView;
 }(window));

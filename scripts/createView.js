@@ -1,9 +1,9 @@
 (function(module) {
 
-  //object to store current recipe ingredients and nutrition information
-  var currentRecipe = {};
-
   var createView = {};
+
+  //object to store current recipe ingredients and nutrition information
+  createView.currentRecipe = {};
 
   //populate accordion drop-downs with ingredients
   createView.populateAccordion = function() {};
@@ -37,4 +37,5 @@
     $('#createContent').show().siblings().hide();
   };
 
+  module.createView = createView;
 }(window));

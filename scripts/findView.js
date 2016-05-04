@@ -10,4 +10,5 @@
     $('#findContent').show().siblings().hide();
   };
 
+  module.findView = findView;
 }(window));
