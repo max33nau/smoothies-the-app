@@ -31,6 +31,12 @@
           name: 'pineapple juice',
           portionQuantity: '2',
           portionUnit: '3/4 cup'
+        },
+        {
+          name: 'orange juice',
+          quantity: 3,
+          portionQuantity: '8',
+          portionUnit: 'oz'
         }
       ]
     }
@@ -42,13 +48,17 @@
 
   //populate recipe search filter(s) with only ingredients in >=1 user Recipe
   recipesView.populateFilters = function() {
-    /*for each recipe in Recipe.all:
-        iterate through all ingredients; for each ingredient:
-          see if name is already in filter options array.
-          if not, push to filter options array
-      for each item in filter options array:
-        create li (or whatever element is needed) and append to filter
-    */
+    var filterOptions = [];
+    Recipe.all.forEach(function(thisRecipe) {
+      thisRecipe.ingredients.forEach(function(thisIngredient) {
+        if (filterOptions.indexOf(thisIngredient.name) < 0) {
+          filterOptions.push(thisIngredient.name);
+        }
+      });
+    });
+    filterOptions.forEach(function(thisOption) {
+      $('#recipeFilter').append('<option value = "' + thisOption + '">' + thisOption + '</option>');
+    });
   };
 
   //when user selects filter, show and hide recipes accordingly
@@ -70,6 +80,7 @@
     $('#recipesContent').show().siblings().hide();
   };
 
+  recipesView.populateFilters();
   recipesView.showRecipePreviews();
   module.recipesView = recipesView;
 }(window));
