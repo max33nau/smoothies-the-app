@@ -1,9 +1,9 @@
 (function(module) {
 
+  var aboutView = {};
+
+  aboutView.renderPage = function() {  //render About page and set event handlers
+    $('#aboutContent').show().siblings().hide();
+  };
 
 }(window));
-var aboutView = {};
-
-aboutView.renderPage = function() {  //render page and set event handlers
-  $('#aboutContent').show().siblings().hide();
-};
