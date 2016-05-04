@@ -13,7 +13,7 @@
   //render a recipe preview for each recipe in Recipe.all
   recipesView.showRecipePreviews = function() {
     Recipe.all.forEach(function(thisRecipe) {
-      
+      $('#recipeCards').append(recipeTemplate(thisRecipe));
     });
   };
 

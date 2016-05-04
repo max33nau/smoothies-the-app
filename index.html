@@ -8,12 +8,12 @@
     <link rel='stylesheet' href='stylesheets/stateChangeRules.css' />
     <link rel='stylesheet' href='stylesheets/modules.css' />
     <link rel="stylesheet" href="">
-   
+
     <script id="ingredTemplate" type="text/x-handlebars-template">
       <h1>{{foodGroup}}</h1>
           <div>
             <ul id="fruits">
-            {{#each ingredients}} 
+            {{#each ingredients}}
               <li>{{name}}, {{qty}}</li>
             {{/each}}
             </ul>
@@ -150,9 +150,7 @@
           <h2>Your Recipes</h2>
           <section id="fullRecipe"></section>
           <p>To see full ingredients and nutrition information for a recipe below, click on its "See Full Recipe" button.</p>
-          <section id="recipeCards">
-            <ul id="savedRecipes"></ul>
-          </section>
+          <section id="recipeCards"></section>
         </section> <!--#recipesContent-->
 
         <section id="aboutContent">
