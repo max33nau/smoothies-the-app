@@ -10,31 +10,45 @@
     <link rel="stylesheet" href="">
 
     <script id="selected-ingredient-template" type="text/x-handlebars-template">
-      <p>X</p>
-      <p>{{name}}</p>
-      <p>
-        <select name="numberPortions">
-          <option value="0.5">0.5</option>
-          <option value="1">1</option>
-          <option value="1.5">1.5</option>
-          <option value="2">2</option>
-          <option value="2.5">2.5</option>
-          <option value="3">3</option>
-          <option value="3.5">3.5</option>
-          <option value="4">4</option>
-          <option value="4.5">4.5</option>
-          <option value="5">5</option>
-        </select>
-        portions</br>(1 portion = {{Qty}} {{Unit}})
-      </p>
+      <div class="selectedIngredient">
+        <p>X</p>
+        <p>{{name}}</p>
+        <p>
+          <select name="numberPortions">
+            <option value="0.5">0.5</option>
+            <option value="1">1</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="3.5">3.5</option>
+            <option value="4">4</option>
+            <option value="4.5">4.5</option>
+            <option value="5">5</option>
+          </select>
+          portions</br>(1 portion = {{Qty}} {{Unit}})
+        </p>
+      </div>
     </script>
 
-    <!--<script id="nutrition-template" type="text/x-handlebars-template">
-      <h2 id='calories'>{{Calories}}</h2>
-      {{each}}
-      <li>{{this}}</li>
-      {{/each}}
-    </script>-->
+    <script id="recipe-template" type="text/x-handlebars-template">
+      <section class="recipePreview">
+        <!--only show first three ingredients of .recipePreview using
+            CSS: .recipePreview ul li:nth-child(n+4) {display: none;}-->
+        <!--when full recipe is rendered, change class to "fullRecipe"
+            and hide "See Full Recipe" using CSS: .fullRecipe p {display: none;}-->
+        <h3>{{name}}</h3>
+        <ul>Ingredients:
+        {{#each ingredients}}
+          <li>
+            <strong>{{quantity}}x</strong> {{portionQuantity}} {{portionUnit}} {{name}}
+          </li>
+        {{/each}}
+        </ul>
+        <p>See Full Recipe</p>
+      </section>
+    </script>
+    
   </head>
   <body>
      <div id="redLine"></div>
