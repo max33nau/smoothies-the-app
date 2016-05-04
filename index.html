@@ -9,12 +9,11 @@
     <link rel='stylesheet' href='stylesheets/modules.css' />
     <link rel="stylesheet" href="">
    
-    <!--<script id="nutrition-template" type="text/x-handlebars-template">
-      <h2 id='calories'>{{Calories}}</h2>
-      {{each}}
+    <script id="ingredTemplate" type="text/x-handlebars-template">
+      {{#each name}}
       <li>{{this}}</li>
       {{/each}}
-    </script>-->
+    </script>
   </head>
   <body>
      <div id="redLine"></div>
@@ -42,39 +41,39 @@
             </div>
              
           <div id="accordion">
-            <h1>FRUITS</h1>
+            <h1 >FRUITS</h1>
               <div>
-                <ul>
+                <ul id="fruits">
                   <li>some fake stuff to see if it's working</li>
                 </ul>
               </div>
             <h1>VEGGIES</h1>
               <div>
-                  <ul>
+                  <ul id="veggies">
                     <li>some fake stuff to see if it's working</li>
                   </ul>
                 </div>
-            <h1>SWEETNERS & HERBS</h1>
+            <h1>SWEETENERS & HERBS</h1>
                 <div>
-                  <ul>
+                  <ul id="sweetners">
                     <li>some fake stuff to see if it's working</li>
                   </ul>
                 </div>
             <h1>NUTS & SEEDS</h1>
                 <div>
-                  <ul>
+                  <ul id="nuts">
                     <li>some fake stuff to see if it's working</li>
                   </ul>
                 </div>
             <h1>LIQUIDS</h1>
                 <div>
-                  <ul>
+                  <ul id="liquids">
                     <li>some fake stuff to see if it's working</li>
                   </ul>
                 </div>
             <h1>FATS & PROTEINS</h1>
                 <div>
-                  <ul>
+                  <ul id="fats">
                     <li>some fake stuff to see if it's working</li>
                   </ul>
                 </div>
@@ -109,7 +108,7 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
     <!--<script src="/vendor/scripts/html5sql.js"></script>
     <script src="/scripts/webdb.js"></script>-->
     <script src="vendor/page.js"></script>

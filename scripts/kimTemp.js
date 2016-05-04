@@ -15,7 +15,7 @@
     });
   };
   
-  
+  //request ingredient data from local storage or from json file
   if (localStorage.ingredientData){
     Ingredient.populateArray(
       JSON.parse(localStorage.getItem('ingredientData'))
@@ -25,9 +25,41 @@
       Ingredient.populateArray(data);
       localStorage.setItem('ingredientData',JSON.stringify(data));
     })/*.fail(alertUser)*/;
-  }
+  };
   
-
+  
+  //push data into accordion sections
+  var $fruits = $('#fruits');
+  var $accordion = $('#accordion');
+  var accordionIds =  //"'#"+Ingredient.allData[0].foodGroup+"'"
+    
+    //the below section is supposed to do this dynamically...still in process, and will be run in the if(local storage) expression above.
+    
+    // Ingredient.allData.map(function(ele){
+    //   console.log("'#" + ele.foodGroup + "'");
+    //   $accordion.find($("'#"+ele.foodGroup+"'")).append('<li>'+ele.name+'</li>');
+    // });
+    
+ 
+    //stil in process!!!
+  Ingredient.allIngredients = function() {
+    return Ingredient.allData.map(function(ingr){
+      return {ingrName: ingr.name, ingrFoodGroup: ingr.foodGroup} ;
+    });
+  }; 
+          
+ 
+  
+  var populateAccordion = function(ingr){
+    var template = Handlebars.compile($('#ingredTemplate').text());
+    return template(ingr);   
+  };
+  
+  Ingredient.allData.forEach(function(a){
+    $fruits.append(populateAccordion(a.name));
+    
+  });
+  
 
 
 
