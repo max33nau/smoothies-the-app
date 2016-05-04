@@ -50,7 +50,16 @@
   };
 
   //retrieve data from recipes DB if rows.length; call Recipe.createAll
-  Recipe.retrieveAll = function() {};
+  Recipe.retrieveAll = function(callback) {
+    webDB.execute('SELECT * FROM recipes ORDER BY name ASC', function(rows) {
+      if (rows.length) {
+        Recipe.createAll(rows);
+        callback();
+      } else {
+        
+      }
+    });
+  };
 
   module.Recipe = Recipe;
 }(window));
