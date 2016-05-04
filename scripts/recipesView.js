@@ -1,5 +1,41 @@
 (function(module) {
 
+  /*******!!!!!!!*****DELETE THIS!!! FOR TESTING ONLY!!!******!!!!!!!********/
+  Recipe.all = [
+    {
+      name: 'Green Machine',
+      ingredients: [
+        {
+          name: 'cherry',
+          quantity: 2,
+          portionQuantity: '1/2',
+          portionUnit: 'cup'
+        },
+        {
+          name: 'orange juice',
+          quantity: 1.5,
+          portionQuantity: '8',
+          portionUnit: 'oz'
+        }
+      ]
+    },
+    {
+      name: 'Yummy Berry',
+      ingredients: [
+        {
+          name: 'strawberry',
+          portionQuantity: '3',
+          portionUnit: '100 g'
+        },
+        {
+          name: 'pineapple juice',
+          portionQuantity: '2',
+          portionUnit: '3/4 cup'
+        }
+      ]
+    }
+  ];
+
   var recipesView = {};
 
   var recipeTemplate = Handlebars.compile($('#recipe-template').html());
@@ -26,5 +62,6 @@
     $('#recipesContent').show().siblings().hide();
   };
 
+  recipesView.showRecipePreviews();
   module.recipesView = recipesView;
 }(window));
