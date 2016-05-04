@@ -32,7 +32,7 @@
   //deselect all ingredients, set quantities to 0
   createView.resetPage = function() {};
 
-  //render page and set event handlers
+  //show Create section, hiding all other "page" sections
   createView.renderPage = function() {
     $('#createContent').show().siblings().hide();
   };
