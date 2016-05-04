@@ -16,7 +16,7 @@
   //to hold all Recipe objects
   Recipe.all = [];
 
-  //uses html5sql.js, vis-à-vis webDB, to create recipes table in DB if not exists
+  //use html5sql.js, vis-à-vis webDB, to create recipes table in DB if not exists
   Recipe.createTable = function(callback) {
     webDB.execute(
       'CREATE TABLE IF NOT EXISTS recipes (' +
@@ -24,12 +24,23 @@
       'name VARCHAR(40) NOT NULL' +
       'ingredients TEXT NOT NULL' +
       'nutritionFacts TEXT NOT NULL);',
-      
-      callback);
+      callback
+    );
   };
 
-  //insert row in recipes table for given Recipe
-  Recipe.insertTableRow = function() {};
+  //use html5sql.js, vis-à-vis webDB, to insert row in recipes table for given Recipe
+  Recipe.insertTableRow = function(callback) {
+    webDB.execute(
+      [
+        {
+          'sql': 'INSERT INTO recipes (name, ingredients, nutritionFacts) ' +
+          'VALUES (?, ?, ?);',
+          'data': [this.name, this.ingredients, this.nutritionFacts]
+        }
+      ],
+      callback
+    );
+  };
 
   //create Recipe object for each row in DB and push to Recipe.all array
   Recipe.createAll = function() {};
