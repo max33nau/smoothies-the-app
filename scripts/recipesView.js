@@ -41,7 +41,15 @@
   var recipeTemplate = Handlebars.compile($('#recipe-template').html());
 
   //populate recipe search filter(s) with only ingredients in >=1 user Recipe
-  recipesView.populateFilters = function() {};
+  recipesView.populateFilters = function() {
+    /*for each recipe in Recipe.all:
+        iterate through all ingredients; for each ingredient:
+          see if name is already in filter options array.
+          if not, push to filter options array
+      for each item in filter options array:
+        create li (or whatever element is needed) and append to filter
+    */
+  };
 
   //when user selects filter, show and hide recipes accordingly
   recipesView.handleFilters = function() {};
