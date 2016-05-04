@@ -37,5 +37,27 @@
     $('#createContent').show().siblings().hide();
   };
 
+
+
+
+//kim workspace...
+
+var $accordionTemplate = $('#accordionTemplate');
+var compiled = Handlebars.compile($accordionTemplate.html());
+
+  createView.callHandlebars = function(dataArray){
+    
+    dataArray.forEach(function(ingr){
+      $("#"+ ingr.foodGroup ).append(compiled(ingr));    
+    });
+  }
+
+$('#aboutContent').hide();
+$('#recipesContent').hide();
+
+
+
   module.createView = createView;
 }(window));
+
+

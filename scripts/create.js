@@ -11,7 +11,7 @@
   Ingredient.all = [];
 
   //grabbing data sets that need to be compiled into final array 
-  Ingredient.compileAll = function(){
+  Ingredient.compileAll = function(callback){
     $.getJSON('dataFiles/ingred.json').done(function(data){
       Ingredient.rawData = data;
   
@@ -19,7 +19,9 @@
         Ingredient.nutrientData = data[0];  
     
         Ingredient.createArray(Ingredient.rawData, Ingredient.nutrientData);  //calling funciton to create array
-      });
+        callback(Ingredient.all);
+        // console.log("hello");
+    });
     });
   };
 //method to pull data from various datasets into a single array of ingredient objects, with one nutrient property that is an array.
@@ -39,11 +41,11 @@
         return nutrientObj;
       });
       return newIngredObj;
-    });  
-  };
+    });
+   };
   
-  Ingredient.compileAll();
-  
+  Ingredient.compileAll(createView.callHandlebars);
+    
   module.Ingredient = Ingredient;
 }(window));
 

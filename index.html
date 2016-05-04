@@ -9,15 +9,8 @@
     <link rel='stylesheet' href='stylesheets/modules.css' />
     <link rel="stylesheet" href="">
    
-    <script id="ingredTemplate" type="text/x-handlebars-template">
-      <h1>{{foodGroup}}</h1>
-          <div>
-            <ul id="fruits">
-            {{#each ingredients}} 
-              <li>{{name}}, {{qty}}</li>
-            {{/each}}
-            </ul>
-          </div>
+    <script id="accordionTemplate" type="text/x-handlebars-template">   
+        <li>{{name}}  ({{qty}} {{unit}})</li>           
     </script>
 
     <script id="selected-ingredient-template" type="text/x-handlebars-template">
@@ -109,41 +102,41 @@
             <h1 >FRUITS</h1>
               <div>
                 <ul id="fruits">
-                  <li>some fake stuff to see if it's working</li>
-                </ul>
-              </div>
-            <h1>VEGGIES</h1>
+                            </ul>
+              </div>-->
+           <h1>VEGGIES</h1>
               <div>
                   <ul id="veggies">
-                    <li>some fake stuff to see if it's working</li>
+                    
                   </ul>
                 </div>
             <h1>SWEETENERS & HERBS</h1>
                 <div>
                   <ul id="sweetners">
-                    <li>some fake stuff to see if it's working</li>
+                    
                   </ul>
                 </div>
             <h1>NUTS & SEEDS</h1>
                 <div>
                   <ul id="nuts">
-                    <li>some fake stuff to see if it's working</li>
+                   
                   </ul>
                 </div>
             <h1>LIQUIDS</h1>
                 <div>
                   <ul id="liquids">
-                    <li>some fake stuff to see if it's working</li>
+                  
                   </ul>
                 </div>
             <h1>FATS & PROTEINS</h1>
                 <div>
                   <ul id="fats">
-                    <li>some fake stuff to see if it's working</li>
+                   
                   </ul>
                 </div>
             </div>  <!--end accordion-->
           </section> <!--#input-->
+          
         </section> <!--#createContent-->
 
         <section id="recipesContent">
@@ -200,12 +193,12 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script src="/vendor/html5sql.js"></script>
     <script src="/scripts/webdb.js"></script>
     <script src="/vendor/page.js"></script>
-    <script src="scripts/create.js"></script>
     <script src="scripts/createView.js"></script>
+    <script src="scripts/create.js"></script>
     <script src="scripts/createController.js"></script>
     <script src="scripts/recipes.js"></script>
     <script src="scripts/recipesView.js"></script>
@@ -214,8 +207,8 @@
     <script src="scripts/aboutController.js"></script>
     <script src="scripts/findView.js"></script>
     <script src="scripts/findController.js"></script>
-    <script src="scripts/kimTemp.js"></script>
-    <!--<script src="scripts/route.js"></script>-->
+    <!--<script src="scripts/kimTemp.js"></script>-->
+    <script src="scripts/route.js"></script>
 
     <script>
    $(function() {
