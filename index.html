@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="">
    
     <script id="ingredTemplate" type="text/x-handlebars-template">
-      {{#each name}}
-      <li>{{this}}</li>
+     {{#each Ingredient}}
+     <li>{{@key}} : {{this}}</li>
+     {{/each}}
+     
+      {{#each Ingredient}}
+      <li>{{name}}</li>
       {{/each}}
     </script>
   </head>
