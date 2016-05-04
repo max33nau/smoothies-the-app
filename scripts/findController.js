@@ -6,4 +6,5 @@
     findView.renderPage();
   };
 
+  module.findController = findController;
 }(window));
