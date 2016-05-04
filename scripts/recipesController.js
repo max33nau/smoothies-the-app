@@ -7,4 +7,5 @@
     recipesView.renderPage();
   };
 
+  module.recipesController = recipesController;
 }(window));

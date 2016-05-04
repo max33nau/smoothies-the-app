@@ -1,111 +1,136 @@
-*{
+* {
   font-size: 1em;
   box-sizing: border-box;
   margin-top: 0px;
   margin-left: 0px;
   padding: 0px;
  }
- body{
+
+ body {
    font-family: corbel, sans-serif;
-   max-width: 1024px;
+   width: 100%;
  }
- #redLine{
+
+ #redLine {
    float: left;
-   position: absolute;
+   position: fixed;
+   top: 0;
+   left: 0;
    background-color: #db5800;
    height: 100%;
    width: 10px;
    z-index: 1000;
  }
 
-.mainNav{
+.mainNav {
   width: 47%;
 }
 
-header{
-  width: 100%;  
-  min-width: 375px;
-  margin-left: 2%;
+header {
+  width: 100%;
+  height: 55px;
   display: flex;
   justify-content: space-between;
   position: fixed;
+  padding: 0 3% 0 3%;
+  background-color: white;
+  box-shadow: 0px 0px 6px lightgray;
 }
-li{
-   color: white;
-   text-decoration: none;
-   list-style: none;
+
+li {
+ color: white;
+ text-decoration: none;
+ list-style: none;
 }
+
 nav li {
  width: 33.34%;
  max-width: 120px;
  text-align: center;
- padding-top: 25px;
+ height: 44px;
  font-weight: bold;
- font-size: .8em;
+ font-size: 0.8em;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
-nav li:nth-child(1){
+
+nav li:nth-child(1) {
   background-color: #ff9000;
 }
-nav li:nth-child(2){
+
+nav li:nth-child(2) {
   background-color: #db5800;
 }
-nav li:nth-child(3){
+
+nav li:nth-child(3) {
   background-color: #8ea106;
 }
-nav ul{
+
+nav ul {
  display: flex;
  justify-content: flex-end;
- margin-right:10%;
 }
-#logoWrapper{
+
+#logoWrapper {
   width: 40%;
-  height: auto;
+  height: 90%;
+  margin: auto 0 auto 8px;
+  padding: auto 0 auto 0;
 }
-#logo{
+
+#logo {
   width: 180px;
-  height: auto;
+  height: 100%;
 }
 /*end header section*/
 
-/*start "input section" */
-#input{
-  position:absolute;
-  top: 310px;
+#mainContent {
   width: 100%;
-  height: 53%;
+  padding-top: 80px;
+}
+
+#createContent {
+  width: 100%;
+}
+
+/*start "input section" */
+#input {
+  width: 100%;
+  height: auto;
   min-width: 250px;
+  padding: 15px 0;
   background-color: #12a89d;
   text-align: left;
-  /*padding-top: 15px;*/
   /*overflow-y:  scroll;*/
 }
-#buttons{
- 
+
+#buttons {
  /*word-spacing: 1em; */
  width: 100%;
  max-width: 375px;
  min-width: 122.86px;
  margin:auto;
 }
-button{
+
+button {
   background-color: #ff9000;
   color: white;
   font-size: .8em;
   text-decoration: none;
-  padding: 5px;
   border: 1px solid white;
   padding: 4px 0 4px 0;
-   width: 122.86px;
-  /*border-radius: 5px;*/
-  /*margin-top: 8px;*/
+  width: 122.86px;
+  margin: 0 5px;
  }
 
 /*accordian layout*/
-#accordion{
+#accordion {
   /*max-width: 375px;*/
   margin-top: 10px;
 }
-#input h1{
+
+#input h1 {
   color: #12a89d;
   font-weight: bold;
   font-size: 1.1em;
@@ -120,89 +145,105 @@ button{
   border-bottom: none;
 }*/
 
-#input li{    
-  /*height: 200px;*/
+#input li {
   background-color: white;
-  width: 90%;
-  margin-left: 20px;
-  border-radius: 3px; 
-  color: black; 
+  width: 100%;
+  margin: 0 auto 0 auto;
+  height: 30px;
+  padding-left: 20px;
+  color: #12a89d;
+  display: flex;
+  align-items: center;
 }
+
 /*end accordian layout*/
 
 
 /*start of output section */
-#output{
-  position: relative;
-  top: 55px;
-}
-#blenderLarge{
-  width: 70px;
+#output {
   height: auto;
+  min-height: 130px;
+}
+
+#output p {
+  padding-left: 110px;
+}
+
+#blenderLarge {
+  width: 70px;
+  height: 130px;
   float: left;
   margin-left: 25px;
 }
 
-#selectedList{
-  position: relative;
+#selectedList {
   width: 90%;
   min-width: 250px;
-  margin: auto;
+  margin: 25px auto 25px auto;
   border: 1px solid #afa497;
   height: 100px;
   border-radius: 20px;
   top: 45px;
 }
-#output h2{
+
+#selectedList h2 {
   margin-left: 25px;
   margin-top: -10px;
   color: #afa497;
   background-color: white;
-  width: 150px;
+  width: 110px;
   font-size: .9em;
-
+  text-align: center;
 }
-.userInput{
+
+.userInput {
   background-color: #12a89d;
   width: 100%;
   max-width: 1024px;
   text-align: center;
   margin-top: 10px;
  }
-#buttons{
+
+#buttons {
   display: flex;
   justify-content: space-around;
   width: 70%;
   margin: auto;
 }
 
-footer{
+footer {
   background-color: #978b7b;
   border-bottom: 0px;
   position: fixed;
   width: 100%;
   height: 25px;
   bottom: 0px;
-  z-index: 1001;
+  z-index: 1000;
 }
-footer ul{
+
+footer ul {
   display: flex;
   justify-content: flex-end;
   font-size: .85em;
   margin-right: 5px;
 }
-footer li{
+
+footer li {
   padding-right: 10px;
   padding-top: 4px;
 }
-#byline{
+
+#byline {
   display:none;
   position: fixed;
   top: 70px;
   left: 45px;
   color: #978b7b;
 }
+<<<<<<< HEAD
 
 #selectedList li{
   color: #978b7b;
 }
+=======
+>>>>>>> 697653cb27c87d0636f49230917f1976e41ebf18

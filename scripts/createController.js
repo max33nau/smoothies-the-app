@@ -6,4 +6,5 @@
     createView.renderPage();
   };
 
+  module.createController = createController;
 }(window));
