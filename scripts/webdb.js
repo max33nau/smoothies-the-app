@@ -15,7 +15,6 @@
       html5sql.putSelectResultsInArray = false;
       msg = 'html5sql verbosity off';
     }
-    console.log(msg);
   };
 
   // Public interface method to set up the initial database connection:

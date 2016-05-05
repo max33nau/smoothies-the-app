@@ -4,22 +4,33 @@
     <meta charset="UTF-8">
     <title>Smoothies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='stylesheets/baseRules.css' />
-    <link rel='stylesheet' href='stylesheets/stateChangeRules.css' />
-    <link rel='stylesheet' href='stylesheets/modules.css' />
+    <link rel='stylesheet' href='stylesheets/baseRules.css' type='text/css'/>
+    <link rel='stylesheet' href='stylesheets/stateChangeRules.css' type='text/css'/>
+    <link rel='stylesheet' href='stylesheets/modules.css' type='type/css'/>
     <link rel="stylesheet" href="">
-   
-    <script id="accordionTemplate" type="text/x-handlebars-template">   
-        <li>{{name}}:  {{qty}} {{unit}} </li>           
+
+    <script id="accordionTemplate" type="text/x-handlebars-template">
+      <li>{{name}}:  {{qty}} {{unit}} </li>
     </script>
-    
-    <!--<script id="labelTemplate" type="text/x-handlebars-template">   
+
+    <script id="ingredTemplate" type="text/x-handlebars-template">
+      <h1>{{foodGroup}}</h1>
+      <div>
+        <ul id="fruits">
+        {{#each ingredients}}
+          <li>{{name}}, {{qty}}</li>
+        {{/each}}
+        </ul>
+      </div>
+    </script>
+
+    <!--<script id="labelTemplate" type="text/x-handlebars-template">
         <div>
-         {{#each nutrient}} 
+         {{#each nutrient}}
           <p>{{@key}}</p>
-          <p>{{this}}</p> 
-         {{/each}} 
-        </div>          
+          <p>{{this}}</p>
+         {{/each}}
+        </div>
     </script>-->
 
     <script id="selected-ingredient-template" type="text/x-handlebars-template">
@@ -45,7 +56,7 @@
     </script>
 
     <script id="recipe-template" type="text/x-handlebars-template">
-      <section class="recipePreview">
+      <section id="{{name}}" class="recipe recipePreview">
         <!--only show first three ingredients of .recipePreview using
             CSS: .recipePreview ul li:nth-child(n+4) {display: none;}-->
         <!--when full recipe is rendered, change class to "fullRecipe"
@@ -54,11 +65,11 @@
         <ul>Ingredients:
         {{#each ingredients}}
           <li>
-            <strong>{{quantity}}x</strong> {{portionQuantity}} {{portionUnit}} {{name}}
+            <strong>{{quantity}}x</strong>  {{portionQuantity}} {{portionUnit}} {{name}}
           </li>
         {{/each}}
         </ul>
-        <p>See Full Recipe</p>
+        <button>See Full Recipe</button>
       </section>
     </script>
 
@@ -143,16 +154,20 @@
                 </div>
             </div>  <!--end accordion-->
           </section> <!--#input-->
-          
+
         </section> <!--#createContent-->
 
         <section id="recipesContent">
           <h2>Your Recipes</h2>
           <section id="fullRecipe"></section>
+          <aside>
+            <p>Have a particular ingredient you want to use? Use the drop-down below to show only recipes that contain that ingredient. If you don't see the ingredient in the list, it's because none of your saved recipes use it.</p>
+            <select id="recipeFilter">
+              <option value="">Filter by ingredient</option>
+            </select>
+          </aside>
           <p>To see full ingredients and nutrition information for a recipe below, click on its "See Full Recipe" button.</p>
-          <section id="recipeCards">
-            <ul id="savedRecipes"></ul>
-          </section>
+          <section id="recipeCards"></section>
         </section> <!--#recipesContent-->
 
         <section id="aboutContent">
