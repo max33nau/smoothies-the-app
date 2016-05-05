@@ -19,20 +19,21 @@
     geocoder.geocode({'address': address}, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         console.log('results: ' + results[0].geometry.location);
-
-        var locationSearched = new google.maps.LatLng(results[0].geometry.location)
+        var location = results[0].geometry.location;
         var map = new google.maps.Map($('#map')[0], {
-          center: locationSearched,
-          zoom: 8 
+          center: location,
+          zoom: 11
         });
 
         var request = {
-          location: locationSearched,
+          location: location,
           radius: 25000,
           query: 'smoothies'
         };
 
-        service =
+        var service = new google.maps.places.PlacesService(map);
+        service.textSearch(request /*CALLBACK HERE*/);
+
         //TODO: Instead of logic below, run search for smoothie shops near results[0].geometry.location
         // resultsMap.setCenter(results[0].geometry.location);
         // var marker = new google.maps.Marker({
@@ -42,6 +43,13 @@
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
+    });
+  };
+
+  findView.showSearchResults = function(results) {
+    $('#findContent').append('<ul id="searchResults">Smoothie shops near you:</ul>');
+    results.forEach(function(thisResult) {
+      //CREATE li AND APPEND TO #searchResults
     });
   };
 
