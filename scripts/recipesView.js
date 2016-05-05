@@ -92,25 +92,25 @@
   //set event handler for recipe previews that renders full recipe
   recipesView.handleSeeFullRecipe = function() {
     $('.recipePreview button').on('click', function(e) {
-      console.log(e.target.parentElement);
+      //the recipe the user wants to see in full
+      var selectedRecipe = ($(this).parent().attr('id'));
 
-      var recipeSection = e.target.parentElement;
-      recipeSection.remove();
-      var recipeToExpand = Recipe.all.filter(function(thisRecipe) {
-        return (thisRecipe.name == recipeSection.id);
+      //if a full recipe is already rendered, remove it
+      $('#fullRecipe').empty();
+      //show in full the recipe the user selected
+      $('#fullRecipe').append($(this).parent());
+
+      //remove all recipe cards
+      $('#recipeCards').empty();
+      //recipes not selected by the user to be shown in full
+      var recipesToPreview = Recipe.all.filter(function(thisRecipe) {
+        return (thisRecipe.name != selectedRecipe);
       });
-      recipesView.showFull(recipeToExpand[0]);
+      //render previews of recipes not selected by user to be shown in full
+      recipesToPreview.forEach(function(thisRecipe) {
+        recipesView.appendRecipePreview(thisRecipe);
+      });
     });
-  };
-
-  recipesView.removeFull = function(recipe) {
-    
-  };
-
-  //render full recipe (first removing any that was rendered previously)
-  recipesView.showFull = function(recipe) {
-
-    $('#fullRecipe').append(recipeTemplate(recipe));
   };
 
   //show Recipes section, hiding all other "page" sections
