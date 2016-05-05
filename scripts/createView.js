@@ -1,8 +1,8 @@
 (function(module) {
 
   var createView = {};
-  
-  
+
+
   //object to store current recipe ingredients and nutrition information
   createView.currentRecipe = {};
 
@@ -12,15 +12,15 @@
     var compiled = Handlebars.compile($accordionTemplate.html());
 
     dataArray.forEach(function(ingr){
-      $("#"+ ingr.foodGroup ).append(compiled(ingr));    
+      $("#"+ ingr.foodGroup ).append(compiled(ingr));
     });
-  };    
+  };
 
 
   //set event listeners for accordion drop-down options (ingredients)
   createView.handleAccordion = function() {};
 
- 
+
   //set event listeners for each selected ingredient's X and quantity multiplier
   createView.handleSelectedIngredients = function() {
     var $accordion = $('#accordion');
@@ -28,13 +28,13 @@
     var $qtySelected = $('#qtySelected');
     var $nutrientList = $('#nutrientList ul');
     var selectObject = {}; //object to capture user selections
-        
+
     $accordion.on('click','li',function(){
       var selectedText = $(this).text().split(":",1)[0];
       selectedArrayText.push(selectedText);
       $nutrientList.append('<li>' + selectedText + '</li>');
-    
-      
+
+
       Ingredient.all.forEach(function(object){
         if(selectedArrayText.indexOf(object.name)>-1){
           object.nutrient.forEach(function(nutrientObj){
@@ -43,20 +43,20 @@
             } else{
               selectObject[nutrientObj.name]=0;
               selectObject[nutrientObj.name]+=nutrientObj.qty;
-            } 
+            }
           });
-        }  
+        }
       });
-      
+
       //the below function sorts the nutrients biggest to smallest and outputs an array. Currently not being used.
       // var keys = [];
-      // var vals = [];      
+      // var vals = [];
       // Object.keys(selectObject)
       //   .map(function (k) {return [k, selectObject[k]]; })
       //   .sort(function (b,a) {
       //     if(a[1]> b[1]) return 1;
       //     if(a[1]< b[1]) return -1;
-      //     return 0;   
+      //     return 0;
       //   }).forEach(function(d){
       //     keys.push(d[0]);
       //     vals.push(d[1]);
@@ -64,9 +64,9 @@
       // topTenKeys = keys.slice(0,10);
       // topTenVals = vals.slice(0,10);
       // console.log(topTenKeys, topTenVals);
-       
-       
-      //append to dom   
+
+
+      //append to dom
       $('#Calories').text(selectObject.Calories);
       // $('#Fat').text(selectObject.Calories);
       // $('#Fat-Saturated').text(selectObject);
@@ -79,12 +79,12 @@
       $('#Potassium').text(selectObject.Potassium);
       $('#Vitamin A').text(selectObject['Vitamin A']);
       $('#Vitamin C').text(selectObject['Vitamin C']);
-      
+
       console.log(selectObject, selectedArrayText);
     });
-  }; 
-  
-       
+  };
+
+
 
   //when ingredient added or removed or quantity changed, update ingredients AND nutrition info
   createView.updateCurrentRecipe = function() {};
@@ -104,7 +104,7 @@
   //deselect all ingredients, set quantities to 0
   createView.resetPage = function() {
     var $btnReset = $('#btnReset');
-    
+
     $btnReset.on('click',function() {
       ///empty selectObject {}
     });
@@ -122,13 +122,11 @@
 
 
 //temporary hide to keep clean workspace REMOVE! WHEN COMPLETE
-  $('#aboutContent').hide();
-  $('#recipesContent').hide();
+  // $('#aboutContent').hide();
+  // $('#recipesContent').hide();
 
-  createView.handleSelectedIngredients();
-  createView.resetPage();
+  // createView.handleSelectedIngredients();
+  // createView.resetPage();
 
   module.createView = createView;
 }(window));
-
-

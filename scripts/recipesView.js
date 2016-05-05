@@ -151,7 +151,7 @@
   };
 
 /*******!!!!!!!*****TODO: DELETE THIS CALL!!! FOR TESTING ONLY!!!******!!!!!!!********/
-  recipesView.renderPage();
+  // recipesView.renderPage();
 
   module.recipesView = recipesView;
 }(window));
