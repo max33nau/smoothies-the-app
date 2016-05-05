@@ -9,28 +9,16 @@
   //to hold all ingredient objects
   Ingredient.all = [];
 
-<<<<<<< HEAD
-  //grabbing data sets that need to be compiled into final array 
-  Ingredient.compileAll = function(callback){
-=======
   //grabbing data sets that need to be compiled into final array
-  Ingredient.compileAll = function(){
->>>>>>> 9de464eefa57acc9e4521171da644e5ac6d1c611
+  Ingredient.compileAll = function(callback){
     $.getJSON('dataFiles/ingred.json').done(function(data){
       Ingredient.rawData = data;
 
       $.getJSON('dataFiles/nutrient-v2.json').done(function(data){
-<<<<<<< HEAD
-        Ingredient.nutrientData = data[0];  
-    
-        Ingredient.createArray(Ingredient.rawData, Ingredient.nutrientData);  //calling funciton to create array
-        callback(Ingredient.all);
-=======
         Ingredient.nutrientData = data[0];
 
-        //calling function to create array
-        Ingredient.createArray(Ingredient.rawData, Ingredient.nutrientData);
->>>>>>> 9de464eefa57acc9e4521171da644e5ac6d1c611
+        Ingredient.createArray(Ingredient.rawData, Ingredient.nutrientData);  //calling funciton to create array
+        callback(Ingredient.all);
       });
     });
   };
@@ -54,15 +42,8 @@
       return newIngredObj;
     });
   };
-<<<<<<< HEAD
-  
+
   Ingredient.compileAll(createView.populateAccordion);
-    
-=======
 
-  /******!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TO BE REMOVED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*****/
-  Ingredient.compileAll();
-
->>>>>>> 9de464eefa57acc9e4521171da644e5ac6d1c611
   module.Ingredient = Ingredient;
 }(window));
