@@ -2,6 +2,9 @@
   font-size: 1em;
   box-sizing: border-box;
   margin-top: 0px;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  font-weight: normal;
   margin-left: 0px;
   padding: 0px;
  }
@@ -18,7 +21,7 @@
    left: 0;
    background-color: #db5800;
    height: 100%;
-   width: 10px;
+   width: 15px;
    z-index: 1000;
  }
 
@@ -246,22 +249,4 @@ footer li {
   color: #978b7b;
 }
 
-/*nutrition label*/
-#nutritionFacts{
-  position: relative;
-  margin-left: 120px;
-  display: flex;
-  flex-direction: column;
-  font-size: .8em;
-  border: 1px solid black;
-  padding: 10px;
-  height: 225px;
-  width: 150px;
-  line-height: .2em;
-}
 
-#title{
-  font-size: 1.4em;
-  font-weight: bold;
-  color: black;
-}

@@ -5,12 +5,12 @@
     <title>Smoothies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='stylesheets/baseRules.css' type='text/css'/>
+    <link rel='stylesheet' href='stylesheets/modules.css' type='text/css'/>
     <link rel='stylesheet' href='stylesheets/stateChangeRules.css' type='text/css'/>
-    <link rel='stylesheet' href='stylesheets/modules.css' type='type/css'/>
     <link rel="stylesheet" href="">
 
     <script id="accordionTemplate" type="text/x-handlebars-template">
-      <li>{{name}}:  {{qty}} {{unit}} </li>
+      <li class={{id}}><span class='foodName'>{{name}}</span>  {{qty}} {{unit}} </li>
     </script>
 
     <script id="ingredTemplate" type="text/x-handlebars-template">
@@ -24,16 +24,11 @@
       </div>
     </script>
 
-    <!--<script id="labelTemplate" type="text/x-handlebars-template">
-        <div>
-         {{#each nutrient}}
-          <p>{{@key}}</p>
-          <p>{{this}}</p>
-         {{/each}}
-        </div>
-    </script>-->
+  <script id="selectedTemplate" type="text/x-handlebars-template">
+        <li> {{name}} : {{value}} {{unit}} </li>
+    </script>
 
-    <script id="selected-ingredient-template" type="text/x-handlebars-template">
+    <!--<script id="selected-ingredient-template" type="text/x-handlebars-template">
       <div class="selectedIngredient">
         <p>X</p>
         <p>{{name}}</p>
@@ -53,7 +48,7 @@
           portions</br>(1 portion = {{Qty}} {{Unit}})
         </p>
       </div>
-    </script>
+    </script>-->
 
     <script id="recipe-template" type="text/x-handlebars-template">
       <section id="{{name}}" class="recipe recipePreview">
@@ -100,18 +95,26 @@
             <!-- </div> -->
             <section id="nutritionFacts">
               <h1 id="title">Nutrition Facts</h1>
-              <h3>Calories.......... <span id="Calories"></span></h3>
-              <h3>Total Fat..........<span id="Fat"></span></h3>
-              <p> Saturated Fat..........<span id="Fat-Saturated"></span></p>
-              <p >Total Carbs..........<span id="Carbohydrate"></span></p>
-              <p >Dietary Fiber..........<span id="Fiber"></span></p>
-              <p>Sugars..........<span  id="Sugars"></span></p>
-              <p >Vitamin D..........<span id="Vitamin D"></span></p>
-              <p >Calcium..........<span id ="Calcium"></span></p>
-              <p>Iron..........<span  id="Iron"></span></p>
-              <p >Potassium..........<span id="Potassium"></span></p>
-              <p >Vitamin A..........<span id="Vitamin A"></span></p>
-              <p>Vitamin C..........<span id="Vitamin C"></span></p>
+              <div class="mainNutrients">
+                <h3 id="caloriesLabel">Calories &nbsp&nbsp<span id="Calories">nw</span></h3>
+                <h3>Total Fat &nbsp&nbsp<span id="Fat"></span>nw</h3>
+              </div>  
+                <p class="subNutrients"> Saturated Fat &nbsp&nbsp<span id="Fat-Saturated">nw</span></p>
+             
+              <div class="otherNutrients">
+                <p>Total Carbs &nbsp&nbsp<span id="Carbohydrate">nw</span></p>
+                <p>Dietary Fiber &nbsp&nbsp<span id="Fiber">nw</span></p>
+                <p>Sugars &nbsp&nbsp<span  id="Sugars">nw</span></p>
+                <p >Vitamin D &nbsp&nbsp<span id="Vitamin D">nw</span></p>
+                <p >Calcium &nbsp&nbsp<span id ="Calcium">nw</span></p>
+                <p class="lastLabel">Iron &nbsp&nbsp<span  id="Iron">nw</span></p>
+                <p >Potassium &nbsp&nbsp<span id="Potassium">nw</span></p>
+                <p >Vitamin A &nbsp&nbsp<span id="Vitamin A">nw</span></p>
+                <p>Vitamin C &nbsp&nbsp<span id="Vitamin C">nw</span></p>
+                <p>Vitamin B6 &nbsp&nbsp<span id="Vitamin C">nw</span></p>
+                <p>Vitamin B12 &nbsp&nbsp<span id="Vitamin C">nw</span></p>
+                <p class="lastLabel">Magnesium &nbsp&nbsp<span id="Vitamin C">nw</span></p>
+               </div>
             </section>
           </section> <!--#output-->
 

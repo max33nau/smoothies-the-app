@@ -23,66 +23,96 @@
  
   //set event listeners for each selected ingredient's X and quantity multiplier
   createView.handleSelectedIngredients = function() {
-    var $accordion = $('#accordion');
-    var selectedArrayText = [];
-    var $qtySelected = $('#qtySelected');
-    var $nutrientList = $('#nutrientList ul');
-    var selectObject = {}; //object to capture user selections
-        
-    $accordion.on('click','li',function(){
-      var selectedText = $(this).text().split(":",1)[0];
-      selectedArrayText.push(selectedText);
-      $nutrientList.append('<li>' + selectedText + '</li>');
-    
-      
-      Ingredient.all.forEach(function(object){
-        if(selectedArrayText.indexOf(object.name)>-1){
-          object.nutrient.forEach(function(nutrientObj){
-            if(selectObject[nutrientObj.name]){
-              selectObject[nutrientObj.name]+=nutrientObj.qty;
-            } else{
-              selectObject[nutrientObj.name]=0;
-              selectObject[nutrientObj.name]+=nutrientObj.qty;
-            } 
-          });
-        }  
+    var $accordion = $('#accordion');  //collect ingr id on-click
+    var $ingredientsLI = $('#ingredients li');  //
+    var $selectedList = $('#selectedList ul');  //place to append new <li>s
+    var $selectedTemplate =$('#selectedTemplate');
+    var compiledNutrientTemplate = Handlebars.compile($selectedTemplate.html());
+   
+    //click event on accordion list item
+    $accordion.on('click','li',function(event){   
+      var idName = $(this)[0].className;
+      var foodName = ($(this).find('.foodName').text());
+      var unique = false;
+      var listArray=[];
+      var portionCount = {};
+      $ingredientsLI.each(function(){
+        listArray.push(Number($(this)[0].className));
+        var $foodPortions = $(this).find('.portionCount');
+        var portionCount = Number($foodPortions.text());
+        if(idName == $(this)[0].className){
+          portionCount++;
+          unique = true;
+        }
+        portionCount[Number($(this)[0].className)] = portionCount;
+        $foodPortions.text(portionCount);
       });
       
-      //the below function sorts the nutrients biggest to smallest and outputs an array. Currently not being used.
-      // var keys = [];
-      // var vals = [];      
-      // Object.keys(selectObject)
-      //   .map(function (k) {return [k, selectObject[k]]; })
-      //   .sort(function (b,a) {
-      //     if(a[1]> b[1]) return 1;
-      //     if(a[1]< b[1]) return -1;
-      //     return 0;   
-      //   }).forEach(function(d){
-      //     keys.push(d[0]);
-      //     vals.push(d[1]);
-      //   });
-      // topTenKeys = keys.slice(0,10);
-      // topTenVals = vals.slice(0,10);
-      // console.log(topTenKeys, topTenVals);
-       
-       
-      //append to dom   
-      $('#Calories').text(selectObject.Calories);
-      // $('#Fat').text(selectObject.Calories);
-      // $('#Fat-Saturated').text(selectObject);
-      $('#Carbohydrate').text(selectObject.Carbohydrate);
-      $('Fiber').text(selectObject.Fiber);
-      $('#Sugars').text(selectObject.Sugars);
-      $('#Vitamin D').text(selectObject['Vitamin D']);
-      $('#Calcium').text(selectObject.Calcium);
-      $('#Iron').text(selectObject.Iron);
-      $('#Potassium').text(selectObject.Potassium);
-      $('#Vitamin A').text(selectObject['Vitamin A']);
-      $('#Vitamin C').text(selectObject['Vitamin C']);
-      
-      console.log(selectObject, selectedArrayText);
+      if(unique == false){
+        listArray.push(Number($(this)[0].className));
+        var updatedListItem = '<li class='+idName+'><span class="foodName">' + foodName + '</span>Portions:<span class="portionCount"> 1 </span> </li>';
+        portionCount[idName] = 1;
+        $('#ingredients').append(
+          updatedListItem
+        );
+      }
+      evaluateFinalNutrients(listArray, portionCount);
     });
-  }; 
+    
+    function evaluateFinalNutrients(listArray, portionCount){
+      $('nutritionFacts').empty();
+      var finalNutrientsValue = {};
+      var reducedArray = Ingredient.all.filter(function(object){
+        if(listArray.indexOf(object.id) > -1) {
+          return object;
+        }
+      });
+      reducedArray.forEach(function(object){
+        object.nutrient.forEach(function(nutrientObject){
+          var newObject = {};
+          if(!finalNutrientsValue[nutrientObject.name]){
+            newObject.name = nutrientObject.name;
+            newObject.unit = nutrientObject.unit;
+            var total = Number(nutrientObject.value) * portionCount[object.id];
+            newObject.value = total;
+            finalNutrientsValue[nutrientObject.name] = newObject;
+          }else {
+            finalNutrientsValue[nutrientObject.name].value +=Number(nutrientObject.value) * portionCount[object.id];
+          }
+        });
+      });
+      reducedArray[0].nutrient.forEach(function(nutrientObject){
+        $('nutritionFacts').append(
+        compiledNutrientTemplate(finalNutrientsValue[nutrientObject.name])
+      );
+      });
+    }
+  
+    $('#btnReset').on('click',function(){
+      $('#nutritionFacts').empty();
+      $('#selectedList').empty();
+    });
+      
+    
+      
+      
+      // //append to dom   
+      // $('#Calories').text(selectObject.Calories);
+      // $('#Fat').text(selectObject.lipids);
+      // // $('#Fat-Saturated').text(selectObject);
+      // $('#Carbohydrate').text(selectObject.Carbohydrate);
+      // $('Fiber').text(selectObject.Fiber);
+      // $('#Sugars').text(selectObject.Sugars);
+      // $('#Vitamin D').text(selectObject['Vitamin D']);
+      // $('#Calcium').text(selectObject.Calcium);
+      // $('#Iron').text(selectObject.Iron);
+      // $('#Potassium').text(selectObject.Potassium);
+      // $('#Vitamin A').text(selectObject['Vitamin A']);
+      // $('#Vitamin C').text(selectObject['Vitamin C']);
+      
+      // console.log(selectObject);
+  };
+ 
   
        
 
