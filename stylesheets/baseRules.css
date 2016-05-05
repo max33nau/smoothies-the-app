@@ -165,10 +165,6 @@ button {
   min-height: 130px;
 }
 
-#output p {
-  padding-left: 110px;
-}
-
 #blenderLarge {
   width: 70px;
   height: 130px;
@@ -248,4 +244,29 @@ footer li {
 
 #selectedList li{
   color: #978b7b;
+}
+
+/*nutrition label*/
+#nutritionFacts{
+  position: relative;
+  margin-left: 120px;
+  display: flex;
+  flex-direction: column;
+  font-size: .8em;
+  border: 1px solid black;
+  padding: 10px;
+  height: 225px;
+  width: 150px;
+  line-height: .2em;
+}
+
+#title{
+  font-size: 1.4em;
+  font-weight: bold;
+  color: black;
+}
+
+#map {
+  height: 500px;
+  width: 600px;
 }

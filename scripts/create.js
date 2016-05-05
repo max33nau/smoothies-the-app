@@ -10,15 +10,15 @@
   Ingredient.all = [];
 
   //grabbing data sets that need to be compiled into final array
-  Ingredient.compileAll = function(){
+  Ingredient.compileAll = function(callback){
     $.getJSON('dataFiles/ingred.json').done(function(data){
       Ingredient.rawData = data;
 
       $.getJSON('dataFiles/nutrient-v2.json').done(function(data){
         Ingredient.nutrientData = data[0];
 
-        //calling function to create array
-        Ingredient.createArray(Ingredient.rawData, Ingredient.nutrientData);
+        Ingredient.createArray(Ingredient.rawData, Ingredient.nutrientData);  //calling funciton to create array
+        callback(Ingredient.all);
       });
     });
   };
@@ -43,8 +43,7 @@
     });
   };
 
-  /******!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TO BE REMOVED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*****/
-  Ingredient.compileAll();
+  Ingredient.compileAll(createView.populateAccordion);
 
   module.Ingredient = Ingredient;
 }(window));
