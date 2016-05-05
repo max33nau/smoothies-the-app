@@ -1,7 +1,24 @@
 (function(module) {
 
-  /*******!!!!!!!*****DELETE THIS!!! FOR TESTING ONLY!!!******!!!!!!!********/
+  /*******!!!!!!!*****TODO: DELETE THIS!!! FOR TESTING ONLY!!!******!!!!!!!********/
   Recipe.all = [
+    {
+      name: 'Blueberry Bliss',
+      ingredients: [
+        {
+          name: 'blueberries',
+          quantity: 4,
+          portionQuantity: '1/2',
+          portionUnit: 'cup'
+        },
+        {
+          name: 'coconut milk',
+          quantity: 1.5,
+          portionQuantity: '8',
+          portionUnit: 'oz'
+        }
+      ]
+    },
     {
       name: 'Green Machine',
       ingredients: [
@@ -44,6 +61,8 @@
 
   var recipesView = {};
 
+  recipesView.filteredRecipes = Recipe.all;
+
   var recipeTemplate = Handlebars.compile($('#recipe-template').html());
 
   //populate recipe search filter(s) with only ingredients in >=1 user Recipe
@@ -66,17 +85,22 @@
     $('aside').on('change', 'select', function() {
       $('.recipe').remove();
 
-      /*******!!!!!!!*****TODO: NEED TO CHECK FOR this.val() - if not exists, show all recipe previews******!!!!!!!********/
-
-
-      var filterBy = $(this).val();
-      Recipe.all.forEach(function(thisRecipe) {
-        thisRecipe.ingredients.forEach(function(thisIngredient) {
-          if (thisIngredient.name == filterBy) {
-            recipesView.appendRecipePreview(thisRecipe);
-          }
+      if ($(this).val()) {
+        recipesView.filteredRecipes = [];
+        var filterBy = $(this).val();
+        Recipe.all.forEach(function(thisRecipe) {
+          thisRecipe.ingredients.forEach(function(thisIngredient) {
+            if (thisIngredient.name == filterBy) {
+              recipesView.filteredRecipes.push(thisRecipe);
+              recipesView.appendRecipePreview(thisRecipe);
+            }
+          });
         });
-      });
+        //if user selects "Filter by ingredient" option, all recipes are shown
+      } else {
+        recipesView.filteredRecipes = Recipe.all;
+        recipesView.showRecipePreviews();
+      }
     });
   };
 
@@ -107,7 +131,7 @@
       //remove all recipe cards
       $('#recipeCards').empty();
       //recipes not selected by the user to be shown in full
-      var recipesToPreview = Recipe.all.filter(function(thisRecipe) {
+      var recipesToPreview = recipesView.filteredRecipes.filter(function(thisRecipe) {
         return (thisRecipe.name != selectedRecipe);
       });
       //render previews of recipes not selected by user to be shown in full
@@ -126,11 +150,8 @@
     recipesView.handleSeeFullRecipe();
   };
 
-/*******!!!!!!!*****DELETE THESE CALLS!!! FOR TESTING ONLY!!!******!!!!!!!********/
-  recipesView.populateFilters();
-  recipesView.handleFilters();
-  recipesView.showRecipePreviews();
-  recipesView.handleSeeFullRecipe();
+/*******!!!!!!!*****TODO: DELETE THIS CALL!!! FOR TESTING ONLY!!!******!!!!!!!********/
+  recipesView.renderPage();
 
   module.recipesView = recipesView;
 }(window));
