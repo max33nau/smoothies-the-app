@@ -22,32 +22,39 @@
   //set event listeners for each selected ingredient's X and quantity multiplier
   createView.handleSelectedIngredients = function() {
     var $accordion = $('#accordion');
-    var selectedArray = [];
+    var selectedArrayText = [];
     var $qtySelected = $('#qtySelected');
-    
+    var $nutrientList = $('#nutrientList ul');
+    var selectedArrayObj = [];
+     
     $accordion.on('click','li',function(){
-      var selectedItem = $(this).text().split(":",1)[0];
-      selectedArray.push(selectedItem);
+      var selectedText = $(this).text().split(":",1)[0];
+      selectedArrayText.push(selectedText);
+      // $nutrientList.append('<li>' + selectedText + '</li>');
       // $qtySelected.text(function(i, val){
       //   return +val+1});
-      console.log(selectedArray);
+   
+      // Ingredient.all.forEach(function(object){
+      //   >-1){
       
-      var selectedNutrients = {}
       Ingredient.all.forEach(function(object){
-        if(selectedArray.indexOf(object.name)>-1){
+        if(selectedArrayText.indexOf(object.name)>-1){
           object.nutrient.forEach(function(nutrientObj){
-            if(!selectedNutrients[nutrientObj.name]){
-              selectedNutrients[nutrientObj.name]=0;
+            if(selectedNutrients[nutrientObj.name]){
+              selectedNutrients[nutrientObj.name]+=nutrientObj.qty;
+              console.log(nutrientObj.name, nutrientObj.qty);
             } else{
-              console.log(nutrientObj.value);
-              finalNutrients[nutrientObj.name]+=nutrientObj.value;
-            }
+              selectedNutrients[nutrientObj.name]=0;
+              selectedNutrients[nutrientObj.name]+=nutrientObj.qty;
+            } 
           });
-        };
-      }); 
-    });    
-  };
+        }; 
+      });console.log(selectedNutrients);
+    }); 
+  };    
+  
            
+                    
 
   //when ingredient added or removed or quantity changed, update ingredients AND nutrition info
   createView.updateCurrentRecipe = function() {};
@@ -79,10 +86,10 @@
 
 
 //temporary hide to keep clean workspace REMOVE! WHEN COMPLETE
-$('#aboutContent').hide();
-$('#recipesContent').hide();
+  $('#aboutContent').hide();
+  $('#recipesContent').hide();
 
-createView.handleSelectedIngredients();
+  createView.handleSelectedIngredients();
 
 
   module.createView = createView;
