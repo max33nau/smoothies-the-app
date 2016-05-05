@@ -20,7 +20,34 @@
   createView.handleAccordion = function() {};
 
   //set event listeners for each selected ingredient's X and quantity multiplier
-  createView.handleSelectedIngredients = function() {};
+  createView.handleSelectedIngredients = function() {
+    var $accordion = $('#accordion');
+    var selectedArray = [];
+    var $qtySelected = $('#qtySelected');
+    
+    $accordion.on('click','li',function(){
+      var selectedItem = $(this).text().split(":",1)[0];
+      selectedArray.push(selectedItem);
+      // $qtySelected.text(function(i, val){
+      //   return +val+1});
+      console.log(selectedArray);
+      
+      var selectedNutrients = {}
+      Ingredient.all.forEach(function(object){
+        if(selectedArray.indexOf(object.name)>-1){
+          object.nutrient.forEach(function(nutrientObj){
+            if(!selectedNutrients[nutrientObj.name]){
+              selectedNutrients[nutrientObj.name]=0;
+            } else{
+              console.log(nutrientObj.value);
+              finalNutrients[nutrientObj.name]+=nutrientObj.value;
+            }
+          });
+        };
+      }); 
+    });    
+  };
+           
 
   //when ingredient added or removed or quantity changed, update ingredients AND nutrition info
   createView.updateCurrentRecipe = function() {};
@@ -55,6 +82,7 @@
 $('#aboutContent').hide();
 $('#recipesContent').hide();
 
+createView.handleSelectedIngredients();
 
 
   module.createView = createView;
