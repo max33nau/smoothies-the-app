@@ -19,14 +19,17 @@
   //set event listeners for accordion drop-down options (ingredients)
   createView.handleAccordion = function() {};
 
+ 
   //set event listeners for each selected ingredient's X and quantity multiplier
   createView.handleSelectedIngredients = function() {
     var $accordion = $('#accordion');
     var selectedArrayText = [];
     var $qtySelected = $('#qtySelected');
     var $nutrientList = $('#nutrientList ul');
-    var selectedArrayObj = [];
-     
+    var $labelTemplate = $('#labelTemplate');
+    var compiledLabel = Handlebars.compile($labelTemplate.html());
+    
+    
     $accordion.on('click','li',function(){
       var selectedText = $(this).text().split(":",1)[0];
       selectedArrayText.push(selectedText);
@@ -36,23 +39,46 @@
    
       // Ingredient.all.forEach(function(object){
       //   >-1){
-      
+      var emptyObject = {};
       Ingredient.all.forEach(function(object){
-        if(selectedArrayText.indexOf(object.name)>-1){
+       if(selectedArrayText.indexOf(object.name)>-1){
           object.nutrient.forEach(function(nutrientObj){
-            if(selectedNutrients[nutrientObj.name]){
-              selectedNutrients[nutrientObj.name]+=nutrientObj.qty;
-              console.log(nutrientObj.name, nutrientObj.qty);
+            if(emptyObject[nutrientObj.name]){
+              emptyObject[nutrientObj.name]+=nutrientObj.qty;
             } else{
-              selectedNutrients[nutrientObj.name]=0;
-              selectedNutrients[nutrientObj.name]+=nutrientObj.qty;
+              emptyObject[nutrientObj.name]=0;
+              emptyObject[nutrientObj.name]+=nutrientObj.qty;
             } 
           });
-        }; 
-      });console.log(selectedNutrients);
-    }); 
-  };    
+        }  
+      });
+      // console.log(emptyObject.Water);
+          //the below function sorts the nutrients biggest to smallest and outputs an array.
+          var keys = []          
+          Object.keys(emptyObject)
+            .map(function (k) {return [k, emptyObject[k]]; })
+            .sort(function (b,a) {
+              if(a[1]> b[1]) return 1;
+              if(a[1]< b[1]) return -1;
+              return 0;   
+            }).forEach(function(d){
+              keys.push(d[0],d[1])
+            });
+            topTen = keys.slice(0,20);
+            console.log(topTen);
+              
+        
+          
+           
+            
+      console.log(emptyObject, selectedArrayText);
+    });
+      
+      
+  }; 
   
+              
+  //need to take calories and fats out of array then reduce to top 10, then do handlebars.
            
                     
 

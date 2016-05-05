@@ -12,6 +12,15 @@
     <script id="accordionTemplate" type="text/x-handlebars-template">   
         <li>{{name}}:  {{qty}} {{unit}} </li>           
     </script>
+    
+    <script id="labelTemplate" type="text/x-handlebars-template">   
+        <div>
+         {{#each nutrient}} 
+          <p>{{@key}}</p>
+          <p>{{this}}</p> 
+         {{/each}} 
+        </div>          
+    </script>
 
     <script id="selected-ingredient-template" type="text/x-handlebars-template">
       <div class="selectedIngredient">
@@ -79,10 +88,12 @@
               <img src='images/blenderLarge.png' id='blenderLarge' />
             <!-- </div> -->
             <section id="nutritionFacts">
-              <p>Nutrition Facts</p>
-              <p>Calories</p>
-              <p>Fat</p>
-              <ul id="nutrientList"></ul>
+              <h1 id="title">Nutrition Facts</h1>
+              <h3>Calories</h3>
+              <h3>Total Fat</h3>
+              <p>Saturated Fat</p>
+              
+              <div id="nutrientList"></div>
             </section>
           </section> <!--#output-->
 
