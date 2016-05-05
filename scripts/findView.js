@@ -18,13 +18,27 @@
     var address = document.getElementById('addressInput').value;
     geocoder.geocode({'address': address}, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
-        console.log('results: ' + results);
-        resultsMap.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-          map: resultsMap,
-          position: results[0].geometry.location
+        console.log('results: ' + results[0].geometry.location);
+
+        var locationSearched = new google.maps.LatLng(results[0].geometry.location)
+        var map = new google.maps.Map($('#map')[0], {
+          center: locationSearched,
+          zoom: 8 
         });
-        console.log('results: ' + results);
+
+        var request = {
+          location: locationSearched,
+          radius: 25000,
+          query: 'smoothies'
+        };
+
+        service =
+        //TODO: Instead of logic below, run search for smoothie shops near results[0].geometry.location
+        // resultsMap.setCenter(results[0].geometry.location);
+        // var marker = new google.maps.Marker({
+        //   map: resultsMap,
+        //   position: results[0].geometry.location
+        // });
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
