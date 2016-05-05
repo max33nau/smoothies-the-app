@@ -240,10 +240,12 @@ footer li {
   left: 45px;
   color: #978b7b;
 }
-<<<<<<< HEAD
+
+/*TODO: Remove this rule - just for testing because recipesContent wasn't fully visible at time of testing*/
+#recipesContent {
+  margin-left: 100px;
+}
 
 #selectedList li{
   color: #978b7b;
 }
-=======
->>>>>>> 697653cb27c87d0636f49230917f1976e41ebf18
