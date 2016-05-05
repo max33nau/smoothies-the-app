@@ -119,8 +119,6 @@
 
 
 
-
-
 //temporary hide to keep clean workspace REMOVE! WHEN COMPLETE
   $('#aboutContent').hide();
   $('#recipesContent').hide();
