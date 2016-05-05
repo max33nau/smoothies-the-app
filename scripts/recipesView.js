@@ -66,6 +66,9 @@
     $('aside').on('change', 'select', function() {
       $('.recipe').remove();
 
+      /*******!!!!!!!*****TODO: NEED TO CHECK FOR this.val() - if not exists, show all recipe previews******!!!!!!!********/
+
+
       var filterBy = $(this).val();
       Recipe.all.forEach(function(thisRecipe) {
         thisRecipe.ingredients.forEach(function(thisIngredient) {
@@ -91,7 +94,8 @@
 
   //set event handler for recipe previews that renders full recipe
   recipesView.handleSeeFullRecipe = function() {
-    $('.recipePreview button').on('click', function(e) {
+    $('#recipeCards').on('click', '.recipePreview button', function(e) {
+      console.log('button was clicked');
       //the recipe the user wants to see in full
       var selectedRecipe = ($(this).parent().attr('id'));
 
