@@ -241,6 +241,7 @@ footer li {
   color: #978b7b;
 }
 
+/*TODO: Remove this rule - just for testing because recipesContent wasn't fully visible at time of testing*/
 #recipesContent {
   margin-left: 100px;
 }
