@@ -90,16 +90,27 @@
   };
 
   //set event handler for recipe previews that renders full recipe
-  recipesView.handleShowFullRecipe = function() {
+  recipesView.handleSeeFullRecipe = function() {
     $('.recipePreview button').on('click', function(e) {
-      console.log(e.target.parentElement.id);
-      
+      console.log(e.target.parentElement);
+
+      var recipeSection = e.target.parentElement;
+      recipeSection.remove();
+      var recipeToExpand = Recipe.all.filter(function(thisRecipe) {
+        return (thisRecipe.name == recipeSection.id);
+      });
+      recipesView.showFull(recipeToExpand[0]);
     });
+  };
+
+  recipesView.removeFull = function(recipe) {
+    
   };
 
   //render full recipe (first removing any that was rendered previously)
   recipesView.showFull = function(recipe) {
 
+    $('#fullRecipe').append(recipeTemplate(recipe));
   };
 
   //show Recipes section, hiding all other "page" sections
@@ -108,14 +119,14 @@
     recipesView.showRecipePreviews();
     recipesView.populateFilters();
     recipesView.handleFilters();
-    recipesView.handleShowFullRecipe();
+    recipesView.handleSeeFullRecipe();
   };
 
 /*******!!!!!!!*****DELETE THESE CALLS!!! FOR TESTING ONLY!!!******!!!!!!!********/
   recipesView.populateFilters();
   recipesView.handleFilters();
   recipesView.showRecipePreviews();
-  recipesView.handleShowFullRecipe();
+  recipesView.handleSeeFullRecipe();
 
   module.recipesView = recipesView;
 }(window));
