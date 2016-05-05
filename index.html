@@ -13,14 +13,14 @@
         <li>{{name}}:  {{qty}} {{unit}} </li>           
     </script>
     
-    <script id="labelTemplate" type="text/x-handlebars-template">   
+    <!--<script id="labelTemplate" type="text/x-handlebars-template">   
         <div>
          {{#each nutrient}} 
           <p>{{@key}}</p>
           <p>{{this}}</p> 
          {{/each}} 
         </div>          
-    </script>
+    </script>-->
 
     <script id="selected-ingredient-template" type="text/x-handlebars-template">
       <div class="selectedIngredient">
@@ -89,11 +89,18 @@
             <!-- </div> -->
             <section id="nutritionFacts">
               <h1 id="title">Nutrition Facts</h1>
-              <h3>Calories</h3>
-              <h3>Total Fat</h3>
-              <p>Saturated Fat</p>
-              
-              <div id="nutrientList"></div>
+              <h3>Calories.......... <span id="Calories"></span></h3>
+              <h3>Total Fat..........<span id="Fat"></span></h3>
+              <p> Saturated Fat..........<span id="Fat-Saturated"></span></p>
+              <p >Total Carbs..........<span id="Carbohydrate"></span></p>
+              <p >Dietary Fiber..........<span id="Fiber"></span></p>
+              <p>Sugars..........<span  id="Sugars"></span></p>
+              <p >Vitamin D..........<span id="Vitamin D"></span></p>
+              <p >Calcium..........<span id ="Calcium"></span></p>
+              <p>Iron..........<span  id="Iron"></span></p>
+              <p >Potassium..........<span id="Potassium"></span></p>
+              <p >Vitamin A..........<span id="Vitamin A"></span></p>
+              <p>Vitamin C..........<span id="Vitamin C"></span></p>
             </section>
           </section> <!--#output-->
 
@@ -214,6 +221,7 @@
     <script>
    $(function() {
     $( "#accordion" ).accordion({
+      active: false,
       collapsible: true,
       heightStyle: "content"
      });
