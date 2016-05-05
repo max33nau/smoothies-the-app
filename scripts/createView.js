@@ -24,7 +24,7 @@
   //set event listeners for each selected ingredient's X and quantity multiplier
   createView.handleSelectedIngredients = function() {
     var $accordion = $('#accordion');  //collect ingr id on-click
-    var $ingredientsLI = $('#ingredients li');  //
+    var $selectedListLI = $('#selectedList li');  //
     var $selectedList = $('#selectedList ul');  //place to append new <li>s
     var $selectedTemplate =$('#selectedTemplate');
     var compiledNutrientTemplate = Handlebars.compile($selectedTemplate.html());
@@ -36,7 +36,7 @@
       var unique = false;
       var listArray=[];
       var portionCount = {};
-      $ingredientsLI.each(function(){
+      $selectedListLI.each(function(){
         listArray.push(Number($(this)[0].className));
         var $foodPortions = $(this).find('.portionCount');
         var portionCount = Number($foodPortions.text());
@@ -52,7 +52,7 @@
         listArray.push(Number($(this)[0].className));
         var updatedListItem = '<li class='+idName+'><span class="foodName">' + foodName + '</span>Portions:<span class="portionCount"> 1 </span> </li>';
         portionCount[idName] = 1;
-        $('#ingredients').append(
+        $('#selectedList').append(
           updatedListItem
         );
       }
