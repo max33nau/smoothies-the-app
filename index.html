@@ -202,8 +202,13 @@
         </section> <!--#aboutContent-->
 
         <section id="findContent">
+          <form action="action_page.php">
+            Enter a location to search for smoothie shops nearby.<br>
+            <input type="text" name="address">
+            <br>
+            <input type="submit" value="Submit">
+          </form>
           <div id="map"></div>
-          
         </section> <!--#findContent-->
 
       </section> <!--#mainContent-->
@@ -246,7 +251,7 @@
     </script>
 
     <script>
-      router.setMapping();
+      // router.setMapping();
     </script>
 
   </body>
