@@ -12,6 +12,8 @@
   //populate recipe search filter(s) with only ingredients in >=1 user Recipe
   recipesView.populateFilters = function() {
     var filterOptions = [];
+    $('#recipeFilter').empty();
+    $('#recipeFilter').append('<option value = "">-- Filter By Ingredient --</option>');
     Recipe.all.forEach(function(thisRecipe) {
       thisRecipe.ingredients.forEach(function(thisIngredient) {
         if (filterOptions.indexOf(thisIngredient.name) < 0) {
@@ -101,7 +103,6 @@
 
   }
   recipesView.populatePage = function(recipes) {
-    console.log(recipes);
     recipesView.showRecipePreviews();
     recipesView.populateFilters();
     $('.nutritionRecipeFacts').hide();
