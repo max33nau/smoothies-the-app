@@ -60,7 +60,8 @@
   padding: 10px;
   width: 160px;
   height: 250px;
-  line-height: .2em;
+  overflow-y:  scroll;
+  /*line-height: .2em;*/
 }
 
 #title{

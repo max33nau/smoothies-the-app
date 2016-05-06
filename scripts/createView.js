@@ -156,10 +156,10 @@
  
   
  
-  // $('#aboutContent').hide();
+  $('#aboutContent').hide();
   $('#recipesContent').hide();
   $('#findContent').hide();
-  $('#createContent').hide();
+  // $('#createContent').hide();
 
   
   createView.handleSelectedIngredients();

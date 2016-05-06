@@ -189,8 +189,15 @@ button {
 
 /*start of output section */
 #output {
-  height: auto;
+  height: 25%;
+  max-height: 300px;
   min-height: 130px;
+  position: fixed;
+  background-color: white;
+  z-index: 900;
+  width: 100%;
+  margin-top: -50px;
+  
 }
 
 #blenderLarge {
@@ -198,7 +205,11 @@ button {
   height: 130px;
   float: left;
   margin-left: 25px;
-}
+  margin-top: 25px;
+ }
+
+
+/*start Ingredient selected list*/
 
 #selectedList {
   width: 90%;
@@ -207,18 +218,21 @@ button {
   border: 1px solid #afa497;
   height: 100px;
   border-radius: 20px;
-  top: 45px;
+  top: 225px;
   color: black;
+
 }
 
 #selectedList h2 {
-  margin-left: 25px;
-  margin-top: -10px;
+  float-right;
+  margin-right: 0;
+  margin-top: 10px;
   color: #afa497;
   background-color: white;
   width: 110px;
   font-size: .9em;
   text-align: center;
+  z-index: 70;
 }
 
 .userInput {
@@ -256,6 +270,7 @@ footer ul {
 footer li {
   padding-right: 10px;
   padding-top: 4px;
+  color: white;
 }
 
 #byline {

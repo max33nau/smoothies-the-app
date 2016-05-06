@@ -1,36 +1,34 @@
 /*nutrition label - mobile*/
+
 #nutritionLabel{
-  position: relative;
   margin-left: 120px;
-  margin-top: -10px;
+  margin-top: 25px;
   font-size: .8em;
   border: 1px solid #c1b6a8;
   padding: 10px;
-  height: 190px;
-  width: 225px;
+  height: 150px;
+  width: 185px;
   line-height: 1.1em;
   color: #978b7b;
+  overflow-y: scroll;
+  background-color:white;
+ 
 }
-
-.otherNutrients {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 100px;
-  padding-top: .5em;
-}
-.otherNutrients p{
-  border-bottom: 1px solid #c1b6a8;
-}
+#titleWrapper{
+  background-color: white;
+  z-index: 15;
+  padding-bottom: 1em;
+  }
 
 #title{
   font-size: 1.4em;
   font-weight: bold;
   padding-bottom: .5em;
   border-bottom: 5px solid #978b7b;
+  background-color: white;
  }
 
-#nutritionFacts  > p span{
+/*#nutritionFacts  > p span{
   text-align: right;
 }
 .mainNutrients{
@@ -38,6 +36,9 @@
   font-size: 1em;
   line-height: 1.3em;
   
+}
+.otherNutrients p{
+  border-bottom: 1px solid #c1b6a8;
 }
 .subNutrients{
   padding-left: .6em;
@@ -53,4 +54,4 @@
 }
 p.lastLabel{
   border-bottom: none;
-}
+}*/
