@@ -28,29 +28,8 @@
         <li> {{name}} : {{value}} {{unit}} </li>
     </script>
 
-    <!--<script id="selected-ingredient-template" type="text/x-handlebars-template">
-      <div class="selectedIngredient">
-        <p>X</p>
-        <p>{{name}}</p>
-        <p>
-          <select name="numberPortions">
-            <option value="0.5">0.5</option>
-            <option value="1">1</option>
-            <option value="1.5">1.5</option>
-            <option value="2">2</option>
-            <option value="2.5">2.5</option>
-            <option value="3">3</option>
-            <option value="3.5">3.5</option>
-            <option value="4">4</option>
-            <option value="4.5">4.5</option>
-            <option value="5">5</option>
-          </select>
-          portions</br>(1 portion = {{Qty}} {{Unit}})
-        </p>
-      </div>
-    </script>-->
-
-    <script id="recipe-template" type="text/x-handlebars-template">
+    
+        <script id="recipe-template" type="text/x-handlebars-template">
       <section id="{{name}}" class="recipe recipePreview">
         <!--only show first three ingredients of .recipePreview using
             CSS: .recipePreview ul li:nth-child(n+4) {display: none;}-->
@@ -93,8 +72,7 @@
             <!-- <div id='imgBlender'> -->
               <img src='images/blenderLarge.png' id='blenderLarge' />
             <!-- </div> -->
-            <section >
-              <ul id="nutritionFacts"></ul>
+            <section id="nutritionLabel">
               <!--<h1 id="title">Nutrition Facts</h1>
               <div class="mainNutrients">
                 <h3 id="caloriesLabel">Calories &nbsp&nbsp<span id="Calories">nw</span></h3>
@@ -116,6 +94,7 @@
                 <p>Vitamin B12 &nbsp&nbsp<span id="Vitamin C">nw</span></p>
                 <p class="lastLabel">Magnesium &nbsp&nbsp<span id="Vitamin C">nw</span></p>
                </div>-->
+               <ul id="nutritionFacts"></ul>
             </section>
           </section> <!--#output-->
 
@@ -123,86 +102,145 @@
             <h2>Ingredients List</h2>
             <ul id="ingredients"></ul>
           </section>
+          
+          
 
           <section id="input">
+           <form id="addRecipe">
+             <input type='text'id='recipeName'placeholder="enter your recipe name here"> </input>
+             <button id='saveButton'> Click to Save </button>
+           </form>
             <div id='buttons'>
               <button id='seeFullLabel'>See Full Label</button>
               <button id='btnReset'>Reset</button>
               <button id='saveRecipes'>Save Recipes</button>
             </div>
 
-          <div id="accordion">
-            <h1 >FRUITS</h1>
-              <div>
-                <ul id="fruits"></ul>
-              </div>
-           <h1>VEGGIES</h1>
-              <div>
-                  <ul id="veggies"></ul>
-              </div>
-            <h1>SWEETENERS & HERBS</h1>
+            <div id="accordion">
+              <h1 >FRUITS</h1>
                 <div>
-                  <ul id="sweetners"></ul>
+                  <ul id="fruits"></ul>
                 </div>
-            <h1>NUTS & SEEDS</h1>
+            <h1>VEGGIES</h1>
                 <div>
-                  <ul id="nuts"></ul>
+                    <ul id="veggies"></ul>
                 </div>
-            <h1>LIQUIDS</h1>
-                <div>
-                  <ul id="liquids"></ul>
-                </div>
-            <h1>FATS & PROTEINS</h1>
-                <div>
-                  <ul id="fats"> </ul>
-                </div>
-            </div>  <!--end accordion-->
+              <h1>SWEETENERS & HERBS</h1>
+                  <div>
+                    <ul id="sweetners"></ul>
+                  </div>
+              <h1>NUTS & SEEDS</h1>
+                  <div>
+                    <ul id="nuts"></ul>
+                  </div>
+              <h1>LIQUIDS</h1>
+                  <div>
+                    <ul id="liquids"></ul>
+                  </div>
+              <h1>FATS & PROTEINS</h1>
+                  <div>
+                    <ul id="fats"> </ul>
+                  </div>
+              </div>  <!--end accordion-->
           </section> <!--#input-->
 
         </section> <!--#createContent-->
 
         <section id="recipesContent">
           <h2>Your Recipes</h2>
+          <div id="highlightedCard" class="recipeCardAndText">
+              <div class="recipeCardText">
+                <div class="recipeTextWrapper"> 
+                  <h4 class="recipeLabel">RECIPE LABEL</h4>
+                  <ul class="recipetext">recipe text append here</ul>
+                </div>
+              </div>
+              <div class="recipeCardImgWrapper" >
+                  <img class="recipeCardImg" src='images/recipeCard.png' /> 
+              </div>
+           </div>   
           <section id="fullRecipe"></section>
+          <div id="sectionBreak">
+            <h4>SAVED RECIPES</h4>
+          </div>          
           <aside>
-            <p>Have a particular ingredient you want to use? Use the drop-down below to show only recipes that contain that ingredient. If you don't see the ingredient in the list, it's because none of your saved recipes use it.</p>
+            <p>Have a particular ingredient you want to use? Use the drop-down at the top to show only recipes that contain that ingredient. If you don't see the ingredient in the list, it's because none of your saved recipes use it.</br>Click on a recipe to see details.</p>
             <select id="recipeFilter">
               <option value="">Filter by ingredient</option>
             </select>
           </aside>
-          <p>To see full ingredients and nutrition information for a recipe below, click on its "See Full Recipe" button.</p>
-          <section id="recipeCards"></section>
+          <section id="allRecipeCards">
+            <!--this will be a template in the final version-->
+          <div id="templatedRecipeCards">  
+              <div class="recipeCardAndText">
+                  <div class="recipeCardText">
+                    <div class="recipeTextWrapper"> 
+                      <h4 class="recipeLabel">RECIPE LABEL</h4>
+                      <ul class="recipetext">recipe text append here</ul>
+                    </div>
+                  </div>
+                  <div class="recipeCardImgWrapper" >
+                      <img class="recipeCardImg" src='images/recipeCard.png' /> 
+                  </div>
+              </div>   
+              <div class="recipeCardAndText">
+                  <div class="recipeCardText">
+                    <div class="recipeTextWrapper"> 
+                      <h4 class="recipeLabel">RECIPE LABEL</h4>
+                      <ul class="recipetext">recipe text append here</ul>
+                    </div>
+                  </div>
+                  <div class="recipeCardImgWrapper" >
+                      <img class="recipeCardImg" src='images/recipeCard.png' /> 
+                  </div>
+              </div>     
+              <div class="recipeCardAndText">
+                  <div class="recipeCardText">
+                    <div class="recipeTextWrapper"> 
+                      <h4 class="recipeLabel">RECIPE LABEL</h4>
+                      <ul class="recipetext">recipe text append here</ul>
+                    </div>
+                  </div>
+                  <div class="recipeCardImgWrapper" >
+                      <img class="recipeCardImg" src='images/recipeCard.png' /> 
+                  </div>
+              </div>    
+            </div>           
+          </section>  
         </section> <!--#recipesContent-->
 
         <section id="aboutContent">
-          <h2>About Smoothies - the App</h2>
-          <p>
-            You love smoothies, and you want to ensure your concoctions have the nutritional content you want.
-            </br></br>
-            You want to experiment with smoothie recipes without making a mess in the kitchen.
-            </br></br>
-            You want to see recipes and nutrition values in one place.
-            </br></br>
-            You want to have somewhere to save your favorite smoothie recipes for future reference.
-          </p>
-          <p>All that is what<strong>Smoothies - the App</strong> is all about. We help you to play around with ingredients and quantities while tracking the nutritional content of the recipe you're working on. Then, if you like what you've come up with, you can give that recipe a name and save it for future use.</p>
-          <h3>Using<strong>Smoothies - the App</strong></h3>
-          <p>
-            Click on the Create tab to start creating a new smoothie recipe. Click on any of the ingredient categories to see a list of foods in that category. To add an ingredient to your recipe, click on it. It will then appear in the Ingredients List. In the Ingredients List you can change the number of portions of each ingredient. You can also click the X to remove the ingredient altogether.
-          </p>
-          <p>
-            As you add to and subtract from your smoothie recipe, the nutrition summary will reflect the changes you're making. If you want to see the full nutrition information, which contains information about additional nutrients not in the summary, click the See Full Label button. If you want to start over, click the Reset button. If you like you're recipe and want to save it, click the Save Recipe button to give it a name and store it.
-          </p>
-          <p>
-            To view your saved recipes, click on the Recipes tab. There you'll see previews of all your saved recipes. To see the full recipe, including the nutrition information, click on the recipe. You can also filter your recipes by ingredient using the drop-down menus.
-          </p>
-          <p>
-            Finally, if you don't feel like breaking out the blender today, go to the Find page to run a search for smoothie shops and juice bars near you.
-          </p>
-          <p>We hope you enjoy<strong>Smoothies - the App</strong>!</p>
-          <p>
-            Want a peek behind the scenes of<strong>Smoothies - the App</strong>? Check out the code and our process <a href="https://github.com/tmzelaya/smoothies-the-app" target="_blank"><strong>here</strong></a>.
-          </p>
+          <div id="aboutContentWrapper">
+            <h2>About Smoothies - the App</h2>
+            
+            <p>
+              You love smoothies, and you want to ensure your concoctions have the nutritional content you want.
+              </br></br>
+              You want to experiment with smoothie recipes without making a mess in the kitchen.
+              </br></br>
+              You want to see recipes and nutrition values in one place.
+              </br></br>
+              You want to have somewhere to save your favorite smoothie recipes for future reference.
+            </p>
+            <p></br>All that is what<strong>Smoothies - the App</strong> is all about. We help you to play around with ingredients and quantities while tracking the nutritional content of the recipe you're working on. Then, if you like what you've come up with, you can give that recipe a name and save it for future use.</p>
+            <h3>Using<strong>Smoothies - the App</strong></h3>
+            <p>
+              Click on the Create tab to start creating a new smoothie recipe. Click on any of the ingredient categories to see a list of foods in that category. To add an ingredient to your recipe, click on it. It will then appear in the Ingredients List. In the Ingredients List you can change the number of portions of each ingredient. You can also click the X to remove the ingredient altogether.
+            </p>
+            <p>
+              As you add to and subtract from your smoothie recipe, the nutrition summary will reflect the changes you're making. If you want to see the full nutrition information, which contains information about additional nutrients not in the summary, click the See Full Label button. If you want to start over, click the Reset button. If you like you're recipe and want to save it, click the Save Recipe button to give it a name and store it.
+            </p>
+            <p>
+              To view your saved recipes, click on the Recipes tab. There you'll see previews of all your saved recipes. To see the full recipe, including the nutrition information, click on the recipe. You can also filter your recipes by ingredient using the drop-down menus.
+            </p>
+            <p>
+              Finally, if you don't feel like breaking out the blender today, go to the Find page to run a search for smoothie shops and juice bars near you.
+            </p>
+            <p>We hope you enjoy<strong>Smoothies - the App</strong>!</p>
+            <p>
+              Want a peek behind the scenes of<strong>Smoothies - the App</strong>? Check out the code and our process <a href="https://github.com/tmzelaya/smoothies-the-app" target="_blank"><strong>here</strong></a>.
+            </p>
+           </div> 
         </section> <!--#aboutContent-->
 
         <section id="findContent">

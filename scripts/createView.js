@@ -53,7 +53,7 @@
         
       if(unique == false){
         listArray.push(Number($(this)[0].className));
-        var updatedListItem = '<li class='+idName+'> <span class="foodName">'+foodName+'</span> <br>Number Of Portions:<span class="portionCount"> 1 </span> </li>';
+        var updatedListItem = '<li class='+idName+'> <span class="foodName">'+foodName+'</span>:&nbsp<span class="portionCount"> 1 </span> &nbsp serving(s) </li>';
         portionCountObj[idName] = 1;
         $('#ingredients').append(
           updatedListItem
@@ -88,17 +88,18 @@
         });
       });
      
+      var finalNutrientsObj = {}
       reducedArray[0].nutrient.forEach(function(nutrientObject){
         $('#nutritionFacts').append(
         compiledNutrientTemplate(finalNutrientsValue[nutrientObject.name])
-        
-      );
+        );
+       
       });
     }
   
     $('#btnReset').on('click',function(){
       $('#nutritionFacts').empty();
-      $('#ingredients li').hide();
+      $('#ingredients li').empty();
     });
       
     
@@ -134,7 +135,9 @@
 
   //event handler for Save Recipe button
   createView.saveRecipe = function() {
-    
+    $('#saveRecipes').on('click',function(){
+      $('#buttons').append('<p>hello</p>');
+    });
     
   };
 
@@ -149,22 +152,27 @@
   };
 
 
-
-
-
-
-
 //temporary hide to keep clean workspace REMOVE! WHEN COMPLETE
  
   
  
   $('#aboutContent').hide();
   $('#recipesContent').hide();
-  $('#findContent').hide();
+  // $('#findContent').hide();
+  $('#createContent').hide();
 
   
   createView.handleSelectedIngredients();
   createView.resetPage();
+  createView.saveRecipe;
 
   module.createView = createView;
 }(window));
+
+
+
+      
+$('#saveRecipes').on('click',function(){
+   $('#addRecipe').css('display','block');
+   
+});

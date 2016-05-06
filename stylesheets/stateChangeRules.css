@@ -69,6 +69,24 @@
   color: black;
 }
 
+/*start recipe content section */
+#highlightedCard{
+ display: inline-block;
+ text-align: center;
+}
+.recipeTextWrapper{
+  width: 65%;
+  heigth: 75%;
+  
+}
+#templatedRecipeCards{
+  display: flex;
+}
+
+#recipeFilter{
+  font-size: 1em;
+}
+
 }
 
 

@@ -13,7 +13,25 @@
    font-family: corbel, sans-serif;
    width: 100%;
  }
+ a{
+   text-decoration: none;
+   font-weight: bold;
+   color: #db5800;
+ }
+ 
+ h1{
+   font-size: 1.5em;
+   font-weight: bold;
+ }
+ 
+ h2{
+   font-size: 1.25em;
+   font-weight: bold;
+ }
 
+h3{
+  font-size: 1em;
+}
  #redLine {
    float: left;
    position: fixed;
@@ -38,10 +56,11 @@ header {
   padding: 0 3% 0 3%;
   background-color: white;
   box-shadow: 0px 0px 6px lightgray;
+  z-index: 100;
 }
 
 li {
- color: black;
+ color:  #978b7b;
  text-decoration: none;
  list-style: none;
 }
@@ -56,6 +75,7 @@ nav li {
  display: flex;
  align-items: center;
  justify-content: center;
+ color: white;
 }
 
 nav li:nth-child(1) {
@@ -118,7 +138,7 @@ nav ul {
 
 button {
   background-color: #ff9000;
-  color: white;
+  color: black;
   font-size: .8em;
   text-decoration: none;
   border: 1px solid white;
@@ -241,11 +261,6 @@ footer li {
   color: #978b7b;
 }
 
-/*TODO: Remove this rule - just for testing because recipesContent wasn't fully visible at time of testing*/
-#recipesContent {
-  margin-left: 100px;
-}
-
 #selectedList li{
   color: #978b7b;
 }
@@ -261,4 +276,110 @@ footer li {
   height: 500px;
   width: 600px;
   }
+  
+#addRecipe{
+  visibility: hidden;
+}
+
+
+
+/*about content page begins here*/
+#aboutContent{
+  background-image: url('/images/blenderLarge.png');
+  background-repeat: repeat-y;
+  background-size: 99px 182px;
+  opacity: .7;
+  position: relative;
+  z-index: 2;
+}
+
+
+#aboutContentWrapper{
+  position: relative;
+  max-width: 500px;
+  margin-left: 105px;
+}
+#aboutContent h2{
+  color: #12a89d;
+}
+
+
+/*saved recipe page*/
+#recipesContent{
+  background-color: #12a89d;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding-left: 25px;
+  top: 100px;
+  padding-top: 40px;
+  min-width: 250px;
+  z-index: 1;
+}
+#recipesContent h2{
+  color: white;
+  font-size: 1.5em;
+}
+#recipeFilter{
+  float:right;
+  position: absolute;
+  right: 1.4em;
+  top: 48px;
+  font-size: .7em;
+}
+.recipeCardImg{
+  width: 85%;
+  height: auto;
+  margin: 0 auto;
+  min-width: 250px;
+  max-width: 400px;
+ }
+ 
+#recipesContent aside p{
+  color: white;
+  font-size: .7em;
+  text-align: center;
+}
+
+.recipeCardImgWrapper{
+  text-align: center;
+  margin-top: -25px;
+}
+.recipeLabel{
+  position: relative;
+  left: 0px;  
+  color: #12a89d;
+  font-size: 1em;
+  font-weight: bold;
+  padding-bottom: 5px;
+ }
+.recipeTextWrapper{
+ float: left;
+ width: 50%;
+ margin-left: 4.6em;  
+ text-align: left;
+ position: relative;
+ top: 50px;
+ color: #978b7b;
+ font-size: .8em;
+ line-height: 1em;
+}
+
+#sectionBreak{
+  color: #ff9000;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+#sectionBreak h4{
+  background-color: #12a89d;
+  position: relative;
+}
+
+#highlightedCard{
+  margin-top: 20px;
+}
+.recipeText{
+  overflow-y: scroll;
+}
+
 
