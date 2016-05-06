@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Smoothies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='stylesheets/baseRules.css' type='text/css'/>
+    <!-- <link rel='stylesheet' href='stylesheets/baseRules.css' type='text/css'/>
     <link rel='stylesheet' href='stylesheets/modules.css' type='text/css'/>
-    <link rel='stylesheet' href='stylesheets/stateChangeRules.css' type='text/css'/>
+    <link rel='stylesheet' href='stylesheets/stateChangeRules.css' type='text/css'/> -->
     <link rel="stylesheet" href="">
 
     <script id="accordionTemplate" type="text/x-handlebars-template">
@@ -16,13 +16,7 @@
     <script id="selectedTemplate" type="text/x-handlebars-template">
         <li> {{name}} : {{value}} {{unit}} </li>
     </script>
-
-<<<<<<< HEAD
-
-        <script id="recipe-template" type="text/x-handlebars-template">
-=======
     <script id="recipe-template" type="text/x-handlebars-template">
->>>>>>> 430e5bb527c3d66cd7534c998ea58c326136a4d1
       <section id="{{name}}" class="recipe recipePreview">
         <!--only show first three ingredients of .recipePreview using
             CSS: .recipePreview ul li:nth-child(n+4) {display: none;}-->
@@ -67,28 +61,7 @@
               <div id="titleWrapper">
               <h1 id="title">Nutrition Facts</h1>
               </div>
-            <!--  <div class="mainNutrients">
-                <h3 id="caloriesLabel">Calories &nbsp&nbsp<span id="Calories">nw</span></h3>
-                <h3>Total Fat &nbsp&nbsp<span id="Fat"></span>nw</h3>
-              </div>
-                <p class="subNutrients"> Saturated Fat &nbsp&nbsp<span id="Fat-Saturated">nw</span></p>
-
-              <div class="otherNutrients">
-                <p>Total Carbs &nbsp&nbsp<span id="Carbohydrate">nw</span></p>
-                <p>Dietary Fiber &nbsp&nbsp<span id="Fiber">nw</span></p>
-                <p>Sugars &nbsp&nbsp<span  id="Sugars">nw</span></p>
-                <p >Vitamin D &nbsp&nbsp<span id="Vitamin D">nw</span></p>
-                <p >Calcium &nbsp&nbsp<span id ="Calcium">nw</span></p>
-                <p class="lastLabel">Iron &nbsp&nbsp<span  id="Iron">nw</span></p>
-                <p >Potassium &nbsp&nbsp<span id="Potassium">nw</span></p>
-                <p >Vitamin A &nbsp&nbsp<span id="Vitamin A">nw</span></p>
-                <p>Vitamin C &nbsp&nbsp<span id="Vitamin C">nw</span></p>
-                <p>Vitamin B6 &nbsp&nbsp<span id="Vitamin C">nw</span></p>
-                <p>Vitamin B12 &nbsp&nbsp<span id="Vitamin C">nw</span></p>
-                <p class="lastLabel">Magnesium &nbsp&nbsp<span id="Vitamin C">nw</span></p>
-               </div>-->
                <ul id="nutritionFacts"></ul>
-
             </section>
 
           </section> <!--#output-->
@@ -98,8 +71,6 @@
             <ul id="ingredients"></ul>
           </section>
 
-
-
           <section id="input">
            <form id="addRecipe">
              <input type='text'id='recipeName'placeholder="enter your recipe name here"> </input>
@@ -108,7 +79,7 @@
             <div id='buttons'>
               <button id='seeFullLabel'>See Full Label</button>
               <button id='btnReset'>Reset</button>
-              <button id='saveRecipes'>Save Recipes</button>
+              <button id='saveRecipes'>Save Recipe</button>
             </div>
 
             <div id="accordion">
@@ -138,6 +109,8 @@
                   </div>
               </div>  <!--end accordion-->
           </section> <!--#input-->
+
+
 
         </section> <!--#createContent-->
 

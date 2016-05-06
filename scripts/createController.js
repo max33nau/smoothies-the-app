@@ -7,6 +7,7 @@
     $('#aboutContent').hide();
     $('#recipesContent').hide();
     $('#findContent').hide();
+    Recipe.createTable();
     Ingredient.compileAll(createView.renderPage);
   };
   module.createController = createController;

@@ -22,12 +22,12 @@
    font-weight: bold;
    color: #db5800;
  }
- 
+
  h1{
    font-size: 1.5em;
    font-weight: bold;
  }
- 
+
  h2{
    font-size: 1.25em;
    font-weight: bold;
@@ -97,7 +97,7 @@ nav li:nth-child(3) {
 nav ul {
  display: flex;
  justify-content: flex-end;
- margin-right: 0px; 
+ margin-right: 0px;
 }
 
 #logoWrapper {
@@ -197,7 +197,7 @@ button {
   z-index: 900;
   width: 100%;
   margin-top: -50px;
-  
+
 }
 
 #blenderLarge {
@@ -218,22 +218,11 @@ button {
   border: 1px solid #afa497;
   height: 100px;
   border-radius: 20px;
-  top: 225px;
+  display: block;
   color: black;
 
 }
 
-#selectedList h2 {
-  float-right;
-  margin-right: 0;
-  margin-top: 10px;
-  color: #afa497;
-  background-color: white;
-  width: 110px;
-  font-size: .9em;
-  text-align: center;
-  z-index: 70;
-}
 
 .userInput {
   background-color: #12a89d;
@@ -292,7 +281,7 @@ footer li {
   color: black;
 }
 
-  
+
 #addRecipe{
   visibility: hidden;
 }
@@ -328,12 +317,12 @@ footer li {
  }
 #aboutContent li{
   list-style: circle;
-  margin-left: 120px; 
+  margin-left: 120px;
 }
 #logoText img{
   width: 140px;
   height: auto;
- 
+
 }
 #aboutMiddleText{
    margin-left: 35px;
@@ -346,9 +335,9 @@ footer li {
 
 #about2ndHalf{
   background-color: #12a89d;
-} 
+}
 #about2ndHalf p, #about2ndHalf h3{
-  margin-left: 35px;  
+  margin-left: 35px;
 }
 
 
@@ -382,7 +371,7 @@ footer li {
   min-width: 250px;
   max-width: 400px;
  }
- 
+
 #recipesContent aside p{
   color: white;
   font-size: .7em;
@@ -395,7 +384,7 @@ footer li {
 }
 .recipeLabel{
   position: relative;
-  left: 0px;  
+  left: 0px;
   color: #12a89d;
   font-size: 1em;
   font-weight: bold;
@@ -404,7 +393,7 @@ footer li {
 .recipeTextWrapper{
  float: left;
  width: 50%;
- margin-left: 4.6em;  
+ margin-left: 4.6em;
  text-align: left;
  position: relative;
  top: 50px;
@@ -444,12 +433,12 @@ footer li {
 #mapWrapper{
   width: 100%;
   height: 100%;
-  
+
 }
 #map {
   width: 350px;
   min-width: 250px;
-  height: 300px; 
+  height: 300px;
   margin: 0 auto;
 }
 
@@ -491,5 +480,3 @@ footer li {
  #searchResults li{
    color: #978b7b;
  }
- 
-

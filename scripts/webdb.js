@@ -23,7 +23,7 @@
     try {
       if (openDatabase) {
         _config(isVerbose);
-        html5sql.openDatabase('blogDB', 'Blog Database', 5*1024*1024);
+        html5sql.openDatabase('smoothDB', 'Smoothie DB', 5*1024*1024);
       } else {
         console.log('Web Databases not supported.');
       }

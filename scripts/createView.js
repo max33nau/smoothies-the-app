@@ -84,18 +84,19 @@
 
   createView.addEventListeners = function() {
     createView.reset();
+    createView.saveRecipe();
   };
 
   createView.reset = function() {
     $('#btnReset').on('click',function(){
       $('#nutritionFacts').empty();
-      $('#ingredients li').empty();
+      $('#ingredients').empty();
     });
   };
   //event handler for Save Recipe button
   createView.saveRecipe = function() {
     $('#saveRecipes').on('click',function(){
-      $('#buttons').append('<p>hello</p>');
+      console.log('clicked');
     });
   };
   //show Create section, hiding all other "page" sections

@@ -17,14 +17,14 @@
   Recipe.all = [];
 
   //use html5sql.js, vis-à-vis webDB, to create recipes table in DB if not exists
+
   Recipe.createTable = function(callback) {
     webDB.execute(
-      'CREATE TABLE IF NOT EXISTS recipes (' +
-      'id INTEGER PRIMARY KEY, ' +
-      'name VARCHAR(40) NOT NULL' +
-      'ingredients TEXT NOT NULL' +
-      'nutritionFacts TEXT NOT NULL);',
-      callback
+      'CREATE TABLE IF NOT EXISTS recipes (id INTEGER PRIMARY KEY, name TEXT, ingredients TEXT, nutrientFacts TEXT);',
+      function(result) {
+        console.log('Successfully set up the recipes table.', result);
+        if (callback) callback();
+      }
     );
   };
 
