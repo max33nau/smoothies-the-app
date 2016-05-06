@@ -48,7 +48,7 @@
   findView.showSearchResults = function(results, status) {
 
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-      $('#findContent').append('<ul id="searchResults">Smoothie shops near you:</ul>');
+      $('#searchResults').append("SMOOTHIE SHOPS NEAR YOU");
       results.splice(10).forEach(function(thisResult) {
 
         var listItem = '<li><p>' + thisResult.name;

@@ -244,13 +244,20 @@
         </section> <!--#aboutContent-->
 
         <section id="findContent">
+         
+          <div id="mapWrapper">
+            <div id="map" ></div>
+          </div>  
+          
           <form>
-            Enter a location to search for smoothie shops nearby.<br>
+            <p>Enter a location to search for smoothie shops nearby.<br></p>
             <input id="addressInput" type="text" name="address">
             <br>
-            <input id="addressSubmit" type="button" value="Submit">
+            <input id="addressSubmit"  value="Submit"></input>
           </form>
-          <div id="map"></div>
+          <div id='searchResultsWrapper'>
+            <ul id='searchResults'></ul>
+          </div>
        </section>  <!--#findContent-->
 
       </section> <!--#mainContent-->
