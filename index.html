@@ -13,23 +13,11 @@
       <li class={{id}}><span class='foodName'>{{name}}</span>  {{qty}} {{unit}} </li>
     </script>
 
-    <script id="ingredTemplate" type="text/x-handlebars-template">
-      <h1>{{foodGroup}}</h1>
-      <div>
-        <ul id="fruits">
-        {{#each ingredients}}
-          <li>{{name}}, {{qty}}</li>
-        {{/each}}
-        </ul>
-      </div>
-    </script>
-
-  <script id="selectedTemplate" type="text/x-handlebars-template">
+    <script id="selectedTemplate" type="text/x-handlebars-template">
         <li> {{name}} : {{value}} {{unit}} </li>
     </script>
 
-    
-        <script id="recipe-template" type="text/x-handlebars-template">
+    <script id="recipe-template" type="text/x-handlebars-template">
       <section id="{{name}}" class="recipe recipePreview">
         <!--only show first three ingredients of .recipePreview using
             CSS: .recipePreview ul li:nth-child(n+4) {display: none;}-->
@@ -46,8 +34,6 @@
         <button>See Full Recipe</button>
       </section>
     </script>
-
-
   </head>
   <body>
      <div id="redLine"></div>
@@ -79,9 +65,9 @@
             <!--  <div class="mainNutrients">
                 <h3 id="caloriesLabel">Calories &nbsp&nbsp<span id="Calories">nw</span></h3>
                 <h3>Total Fat &nbsp&nbsp<span id="Fat"></span>nw</h3>
-              </div>  
+              </div>
                 <p class="subNutrients"> Saturated Fat &nbsp&nbsp<span id="Fat-Saturated">nw</span></p>
-             
+
               <div class="otherNutrients">
                 <p>Total Carbs &nbsp&nbsp<span id="Carbohydrate">nw</span></p>
                 <p>Dietary Fiber &nbsp&nbsp<span id="Fiber">nw</span></p>
@@ -97,17 +83,17 @@
                 <p class="lastLabel">Magnesium &nbsp&nbsp<span id="Vitamin C">nw</span></p>
                </div>-->
                <ul id="nutritionFacts"></ul>
-               
+
             </section>
-            
+
           </section> <!--#output-->
 
           <section id="selectedList" >
             <h2>Ingredients List</h2>
             <ul id="ingredients"></ul>
           </section>
-          
-          
+
+
 
           <section id="input">
            <form id="addRecipe">
@@ -154,19 +140,19 @@
           <h2>Your Recipes</h2>
           <div id="highlightedCard" class="recipeCardAndText">
               <div class="recipeCardText">
-                <div class="recipeTextWrapper"> 
+                <div class="recipeTextWrapper">
                   <h4 class="recipeLabel">RECIPE LABEL</h4>
                   <ul class="recipetext">recipe text append here</ul>
                 </div>
               </div>
               <div class="recipeCardImgWrapper" >
-                  <img class="recipeCardImg" src='images/recipeCard.png' /> 
+                  <img class="recipeCardImg" src='images/recipeCard.png' />
               </div>
-           </div>   
+           </div>
           <section id="fullRecipe"></section>
           <div id="sectionBreak">
             <h4>SAVED RECIPES</h4>
-          </div>          
+          </div>
           <aside>
             <p>Have a particular ingredient you want to use? Use the drop-down at the top to show only recipes that contain that ingredient. If you don't see the ingredient in the list, it's because none of your saved recipes use it.</br>Click on a recipe to see details.</p>
             <select id="recipeFilter">
@@ -175,42 +161,42 @@
           </aside>
           <section id="allRecipeCards">
             <!--this will be a template in the final version-->
-          <div id="templatedRecipeCards">  
+          <div id="templatedRecipeCards">
               <div class="recipeCardAndText">
                   <div class="recipeCardText">
-                    <div class="recipeTextWrapper"> 
+                    <div class="recipeTextWrapper">
                       <h4 class="recipeLabel">RECIPE LABEL</h4>
                       <ul class="recipetext">recipe text append here</ul>
                     </div>
                   </div>
                   <div class="recipeCardImgWrapper" >
-                      <img class="recipeCardImg" src='images/recipeCard.png' /> 
+                      <img class="recipeCardImg" src='images/recipeCard.png' />
                   </div>
-              </div>   
+              </div>
               <div class="recipeCardAndText">
                   <div class="recipeCardText">
-                    <div class="recipeTextWrapper"> 
+                    <div class="recipeTextWrapper">
                       <h4 class="recipeLabel">RECIPE LABEL</h4>
                       <ul class="recipetext">recipe text append here</ul>
                     </div>
                   </div>
                   <div class="recipeCardImgWrapper" >
-                      <img class="recipeCardImg" src='images/recipeCard.png' /> 
+                      <img class="recipeCardImg" src='images/recipeCard.png' />
                   </div>
-              </div>     
+              </div>
               <div class="recipeCardAndText">
                   <div class="recipeCardText">
-                    <div class="recipeTextWrapper"> 
+                    <div class="recipeTextWrapper">
                       <h4 class="recipeLabel">RECIPE LABEL</h4>
                       <ul class="recipetext">recipe text append here</ul>
                     </div>
                   </div>
                   <div class="recipeCardImgWrapper" >
-                      <img class="recipeCardImg" src='images/recipeCard.png' /> 
+                      <img class="recipeCardImg" src='images/recipeCard.png' />
                   </div>
-              </div>    
-            </div>           
-          </section>  
+              </div>
+            </div>
+          </section>
         </section> <!--#recipesContent-->
 
         <section id="aboutContent">
@@ -232,11 +218,11 @@
             </ul>
           <div id="aboutMiddleText">
               <p id="aboutZinger"></br>Well, that's what <span id="logoText"><img src='images/logo.png' /></span> is all about! </p>
-           
+
             <p>
             We help you to play around with ingredients and quantities while tracking the nutritional content of the recipe you're working on. Then, if you like what you've come up with, you can give that recipe a name and save it for future use.</p>
           </div>
-             
+
            <div id="about2ndHalf">
              <h3></br>Here's how it works</h3>
             <p id="aboutP1" class="aboutText">
@@ -252,19 +238,19 @@
               Finally, if you don't feel like breaking out the blender today, go to the Find page to run a search for smoothie shops and juice bars near you.
             </p>
             <p>We hope you enjoy<strong>Smoothies - the App</strong>!</p>
-            <p>              
+            <p>
               Want a peek behind the scenes of<strong>Smoothies - the App</strong>? Check out the code and our process <a href="https://github.com/tmzelaya/smoothies-the-app" target="_blank"><strong>here</strong></a>.
             </p>
             </div>
-           </div> 
+           </div>
         </section> <!--#aboutContent-->
 
         <section id="findContent">
-         
+
           <div id="mapWrapper">
             <div id="map" ></div>
-          </div>  
-          
+          </div>
+
           <form>
             <p>Enter a location to search for smoothie shops nearby.<br></p>
             <input id="addressInput" type="text" name="address">

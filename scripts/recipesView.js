@@ -151,8 +151,5 @@
     recipesView.handleSeeFullRecipe();
   };
 
-/*******!!!!!!!*****TODO: DELETE THIS CALL!!! FOR TESTING ONLY!!!******!!!!!!!********/
-  // recipesView.renderPage();
-
   module.recipesView = recipesView;
 }(window));
