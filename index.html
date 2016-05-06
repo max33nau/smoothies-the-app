@@ -24,15 +24,15 @@
         <!--when full recipe is rendered, change class to "fullRecipe"
             and hide "See Full Recipe" using CSS: .fullRecipe p {display: none;}-->
         <h3 class='recipeName'>{{name}}</h3>
-        <ul>Ingredients:
+        <ul> <h5> Ingredients: </h5>
         {{#each ingredients}}
           <li>
             <strong>{{servings}} servings</strong> of {{name}}
           </li>
         {{/each}}
         </ul>
-        <div class='showNutritionFacts'>See Nutrition Facts
-          <ul class='nutritionRecipeFacts'> Nutrition Facts:
+        <div class='showNutritionFacts' style='border: 3px solid pink; display: inline-block;'>See Nutrition Facts
+          <ul class='nutritionRecipeFacts'> <h5> Nutrition Facts: </h5>
             {{#each nutritionFacts}}
               <li>
                 {{nutrientTotal}}
