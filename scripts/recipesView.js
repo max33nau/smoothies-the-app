@@ -1,63 +1,7 @@
 (function(module) {
 
   /*******!!!!!!!*****TODO: DELETE THIS!!! FOR TESTING ONLY!!!******!!!!!!!********/
-  Recipe.all = [
-    {
-      name: 'Blueberry Bliss',
-      ingredients: [
-        {
-          name: 'blueberries',
-          quantity: 4,
-          portionQuantity: '1/2',
-          portionUnit: 'cup'
-        },
-        {
-          name: 'coconut milk',
-          quantity: 1.5,
-          portionQuantity: '8',
-          portionUnit: 'oz'
-        }
-      ]
-    },
-    {
-      name: 'Green Machine',
-      ingredients: [
-        {
-          name: 'cherry',
-          quantity: 2,
-          portionQuantity: '1/2',
-          portionUnit: 'cup'
-        },
-        {
-          name: 'orange juice',
-          quantity: 1.5,
-          portionQuantity: '8',
-          portionUnit: 'oz'
-        }
-      ]
-    },
-    {
-      name: 'Yummy Berry',
-      ingredients: [
-        {
-          name: 'strawberry',
-          portionQuantity: '3',
-          portionUnit: '100 g'
-        },
-        {
-          name: 'pineapple juice',
-          portionQuantity: '2',
-          portionUnit: '3/4 cup'
-        },
-        {
-          name: 'orange juice',
-          quantity: 3,
-          portionQuantity: '8',
-          portionUnit: 'oz'
-        }
-      ]
-    }
-  ];
+  Recipe.all = [];
 
   var recipesView = {};
 
@@ -82,9 +26,10 @@
 
   //when user selects filter, show and hide recipes accordingly
   recipesView.handleFilters = function() {
-    $('aside').on('change', 'select', function() {
-      $('.recipe').remove();
+    $('#recipeFilter').on('change',function() {
 
+      $('.recipe').remove();
+      console.log($(this).val());
       if ($(this).val()) {
         recipesView.filteredRecipes = [];
         var filterBy = $(this).val();
@@ -106,7 +51,9 @@
 
   //append a single recipe to the #recipeCards section
   recipesView.appendRecipePreview = function(recipe) {
-    $('#recipeCards').append(recipeTemplate(recipe));
+    $('#yourRecipes').append(recipeTemplate(recipe));
+    $('.nutritionRecipeFacts').hide();
+    recipesView.addEventListeners();
   };
 
   //render a recipe preview for each recipe in Recipe.all
@@ -144,11 +91,23 @@
   //show Recipes section, hiding all other "page" sections
   recipesView.renderPage = function() {
     $('#recipesContent').show().siblings().hide();
-    Recipe.retrieveAll();
+    Recipe.retrieveAll(Recipe.createAll, recipesView.populatePage);
+  };
+
+  recipesView.addEventListeners = function() {
+    $('.showNutritionFacts').on('click', function(){
+      $(this).find('.nutritionRecipeFacts').show();
+    });
+
+  }
+  recipesView.populatePage = function(recipes) {
+    console.log(recipes);
     recipesView.showRecipePreviews();
     recipesView.populateFilters();
+    $('.nutritionRecipeFacts').hide();
+    recipesView.addEventListeners();
     recipesView.handleFilters();
-    recipesView.handleSeeFullRecipe();
+  //  recipesView.handleSeeFullRecipe();
   };
 
   module.recipesView = recipesView;

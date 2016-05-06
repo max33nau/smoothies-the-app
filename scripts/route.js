@@ -3,6 +3,7 @@
 
   router.setMapping = function() {
     page.base('/');
+    Recipe.createTable();
     page('', createController.index);
     page('create', '/');
     page('about', aboutController.index);

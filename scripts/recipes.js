@@ -8,9 +8,9 @@
   .forEach takes function and (optional) value that dictates value to be used as 'this' in that function
   */
   var Recipe = function(options) {
-    Object.keys(options).forEach(function(e, index, keys) {
-      this[e] = options[e];
-    }, this);
+    this.name = options.name;
+    this.ingredients = JSON.parse(options.ingredients);
+    this.nutritionFacts = JSON.parse(options.nutritionFacts);
   };
 
   //to hold all Recipe objects
@@ -20,7 +20,7 @@
 
   Recipe.createTable = function(callback) {
     webDB.execute(
-      'CREATE TABLE IF NOT EXISTS recipes (id INTEGER PRIMARY KEY, name TEXT, ingredients TEXT, nutrientFacts TEXT);',
+      'CREATE TABLE IF NOT EXISTS recipes (id INTEGER PRIMARY KEY, name TEXT, ingredients TEXT, nutritionFacts TEXT);',
       function(result) {
         console.log('Successfully set up the recipes table.', result);
         if (callback) callback();
@@ -43,18 +43,19 @@
   };
 
   //create Recipe object for each row in DB and push to Recipe.all array
-  Recipe.createAll = function(rows) {
+  Recipe.createAll = function(rows, view) {
     Recipe.all = rows.map(function(thisRow) {
       return new Recipe(thisRow);
     });
+    view(Recipe.all);
   };
 
   //retrieve data from recipes DB if rows.length; call Recipe.createAll
-  Recipe.retrieveAll = function(callback) {
+  Recipe.retrieveAll = function(callback, view) {
     webDB.execute('SELECT * FROM recipes ORDER BY name ASC', function(rows) {
       if (rows.length) {
-        Recipe.createAll(rows);
-        callback();
+      //  Recipe.createAll(rows);
+        callback(rows, view);
       } else {
         $('#recipesContent p').text('You haven\'t saved any recipes yet. Click on the CREATE tab above to start concocting!');
       }

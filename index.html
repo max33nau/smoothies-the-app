@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Smoothies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel='stylesheet' href='stylesheets/baseRules.css' type='text/css'/>
-    <link rel='stylesheet' href='stylesheets/modules.css' type='text/css'/>
-    <link rel='stylesheet' href='stylesheets/stateChangeRules.css' type='text/css'/> -->
-    <link rel="stylesheet" href="">
+    <!-- <link rel='stylesheet' href='stylesheets/baseRules.css' type='text/css'/> -->
+    <!-- <link rel='stylesheet' href='stylesheets/modules.css' type='text/css'/>
+    <link rel='stylesheet' href='stylesheets/stateChangeRules.css' type='text/css'/>
+    <link rel="stylesheet" href=""> -->
+
 
     <script id="accordionTemplate" type="text/x-handlebars-template">
       <li class={{id}}><span class='foodName'>{{name}}</span>  {{qty}} {{unit}} </li>
@@ -22,15 +23,24 @@
             CSS: .recipePreview ul li:nth-child(n+4) {display: none;}-->
         <!--when full recipe is rendered, change class to "fullRecipe"
             and hide "See Full Recipe" using CSS: .fullRecipe p {display: none;}-->
-        <h3>{{name}}</h3>
+        <h3 class='recipeName'>{{name}}</h3>
         <ul>Ingredients:
         {{#each ingredients}}
           <li>
-            <strong>{{quantity}}x</strong>  {{portionQuantity}} {{portionUnit}} {{name}}
+            <strong>{{servings}} servings</strong> of {{name}}
           </li>
         {{/each}}
         </ul>
-        <button>See Full Recipe</button>
+        <div class='showNutritionFacts'>See Nutrition Facts
+          <ul class='nutritionRecipeFacts'> Nutrition Facts:
+            {{#each nutritionFacts}}
+              <li>
+                {{nutrientTotal}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+
       </section>
     </script>
   </head>
@@ -72,10 +82,10 @@
           </section>
 
           <section id="input">
-           <form id="addRecipe">
+           <!-- <form id="addRecipe">
              <input type='text'id='recipeName'placeholder="enter your recipe name here"> </input>
              <button id='saveButton'> Click to Save </button>
-           </form>
+           </form> -->
             <div id='buttons'>
               <button id='seeFullLabel'>See Full Label</button>
               <button id='btnReset'>Reset</button>
@@ -116,7 +126,11 @@
 
         <section id="recipesContent">
           <h2>Your Recipes</h2>
-          <div id="highlightedCard" class="recipeCardAndText">
+          <select id="recipeFilter" style='background-color: black; color: white; border: 3px solid red;'>
+            <option value="">Filter by ingredient</option>
+          </select>
+          <div id='yourRecipes'> </div>
+          <!-- <div id="highlightedCard" class="recipeCardAndText">
               <div class="recipeCardText">
                 <div class="recipeTextWrapper">
                   <h4 class="recipeLabel">RECIPE LABEL</h4>
@@ -133,12 +147,10 @@
           </div>
           <aside>
             <p>Have a particular ingredient you want to use? Use the drop-down at the top to show only recipes that contain that ingredient. If you don't see the ingredient in the list, it's because none of your saved recipes use it.</br>Click on a recipe to see details.</p>
-            <select id="recipeFilter">
-              <option value="">Filter by ingredient</option>
-            </select>
+
           </aside>
           <section id="allRecipeCards">
-            <!--this will be a template in the final version-->
+
           <div id="templatedRecipeCards">
               <div class="recipeCardAndText">
                   <div class="recipeCardText">
@@ -174,7 +186,7 @@
                   </div>
               </div>
             </div>
-          </section>
+          </section> -->
         </section> <!--#recipesContent-->
 
         <section id="aboutContent">

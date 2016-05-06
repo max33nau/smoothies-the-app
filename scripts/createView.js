@@ -96,7 +96,29 @@
   //event handler for Save Recipe button
   createView.saveRecipe = function() {
     $('#saveRecipes').on('click',function(){
-      console.log('clicked');
+      var recipeName = prompt('Please enter the name of your recipe? If you are not ready to save your recipe click cancel.');
+      if(recipeName) {
+        var foodArray = [];
+        var totalNutrientArray = [];
+        var portionCountObj;
+        $('#ingredients li').each(function(){  //these are <li>s created dynamically
+          var ingredientObject = {};
+          ingredientObject.name =$(this).find('.foodName').text();
+          ingredientObject.servings = $(this).find('.portionCount').text();
+          foodArray.push(ingredientObject);
+        });
+        $('#nutritionFacts li').each(function(){
+          totalNutrientArray.push({'nutrientTotal':$(this).text()});
+        });
+        var finalRecipe = {};
+        finalRecipe.name = recipeName;
+        finalRecipe.ingredients = JSON.stringify(foodArray);
+        finalRecipe.nutritionFacts = JSON.stringify(totalNutrientArray);
+        Recipe.insertTableRow(finalRecipe, function(){
+          console.log('recipe added to db');
+          window.location = '/recipes';
+        });
+      }
     });
   };
   //show Create section, hiding all other "page" sections
