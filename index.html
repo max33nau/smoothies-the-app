@@ -13,23 +13,16 @@
       <li class={{id}}><span class='foodName'>{{name}}</span>  {{qty}} {{unit}} </li>
     </script>
 
-    <script id="ingredTemplate" type="text/x-handlebars-template">
-      <h1>{{foodGroup}}</h1>
-      <div>
-        <ul id="fruits">
-        {{#each ingredients}}
-          <li>{{name}}, {{qty}}</li>
-        {{/each}}
-        </ul>
-      </div>
-    </script>
-
-  <script id="selectedTemplate" type="text/x-handlebars-template">
+    <script id="selectedTemplate" type="text/x-handlebars-template">
         <li> {{name}} : {{value}} {{unit}} </li>
     </script>
 
+<<<<<<< HEAD
 
         <script id="recipe-template" type="text/x-handlebars-template">
+=======
+    <script id="recipe-template" type="text/x-handlebars-template">
+>>>>>>> 430e5bb527c3d66cd7534c998ea58c326136a4d1
       <section id="{{name}}" class="recipe recipePreview">
         <!--only show first three ingredients of .recipePreview using
             CSS: .recipePreview ul li:nth-child(n+4) {display: none;}-->
@@ -46,8 +39,6 @@
         <button>See Full Recipe</button>
       </section>
     </script>
-
-
   </head>
   <body>
      <div id="redLine"></div>
