@@ -12,6 +12,6 @@
 
     page();
   };
-
+  router.setMapping();
   module.router = router;
 }(window));
