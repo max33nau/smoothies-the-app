@@ -43,10 +43,10 @@
         var $foodPortions = $(this).find('.portionCount'); //portion count is class gerenated dynamically
        
         var portionCount = Number($foodPortions.text());
-        console.log(portionCount);
-         console.log("doIhaveclassname: "+$(this)[0].className);
-         console.log("doIhaveid?:  "+idName);
-         console.log("list array = "+ listArray)
+        // console.log(portionCount);
+        //  console.log("doIhaveclassname: "+$(this)[0].className);
+        //  console.log("doIhaveid?:  "+idName);
+        //  console.log("list array = "+ listArray)
         if(idName == $(this)[0].className){
           portionCount++;
           unique = true;
@@ -69,17 +69,16 @@
     });
     
     function evaluateFinalNutrients(listArray, portionCount){
-       $('nutritionFacts').empty();
+       $('#nutritionFacts').empty();
       var finalNutrientsValue = {};
       var reducedArray = Ingredient.all.filter(function(object){
         if(listArray.indexOf(object.id) > -1) {
-          console.log("listarray: "+listArray);
+          // console.log("listarray: "+listArray);
           return object;
         }
       });
       
       reducedArray.forEach(function(object){
-        console.log("reduced array = "+reducedArray);
         object.nutrient.forEach(function(nutrientObject){
           var newObject = {};
           if(!finalNutrientsValue[nutrientObject.name]){
@@ -94,8 +93,9 @@
         });
       });
       reducedArray[0].nutrient.forEach(function(nutrientObject){
-        $('nutritionFacts').append(
+        $('#nutritionFacts').append(
         compiledNutrientTemplate(finalNutrientsValue[nutrientObject.name])
+        
       );
       });
     }
