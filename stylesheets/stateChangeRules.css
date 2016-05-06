@@ -1,4 +1,4 @@
-@media only screen and (min-width : 500px) {
+@media only screen and (min-width : 600px) {
   #byline{
     display: block;
   }
@@ -54,19 +54,25 @@
 }
 
 /*nutrition label*/
-#nutritionFacts{
-  position: relative;
-  border: 1px solid black;
-  padding: 10px;
-  width: 160px;
-  height: 250px;
-  line-height: .2em;
+
+
+
+/*start recipe content section */
+#highlightedCard{
+ display: inline-block;
+ text-align: center;
+}
+.recipeTextWrapper{
+  width: 65%;
+  heigth: 75%;
+  
+}
+#templatedRecipeCards{
+  display: flex;
 }
 
-#title{
-  font-size: 1.4em;
-  font-weight: bold;
-  color: black;
+#recipeFilter{
+  font-size: 1em;
 }
 
 }

@@ -2,15 +2,40 @@
   font-size: 1em;
   box-sizing: border-box;
   margin-top: 0px;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  font-weight: normal;
   margin-left: 0px;
   padding: 0px;
+ }
+ html{
+   min-height: 100% !important;
  }
 
  body {
    font-family: corbel, sans-serif;
    width: 100%;
+   heigth: 100%;
+ }
+ a{
+   text-decoration: none;
+   font-weight: bold;
+   color: #db5800;
+ }
+ 
+ h1{
+   font-size: 1.5em;
+   font-weight: bold;
+ }
+ 
+ h2{
+   font-size: 1.25em;
+   font-weight: bold;
  }
 
+h3{
+  font-size: 1em;
+}
  #redLine {
    float: left;
    position: fixed;
@@ -18,7 +43,7 @@
    left: 0;
    background-color: #db5800;
    height: 100%;
-   width: 10px;
+   width: 15px;
    z-index: 1000;
  }
 
@@ -35,10 +60,11 @@ header {
   padding: 0 3% 0 3%;
   background-color: white;
   box-shadow: 0px 0px 6px lightgray;
+  z-index: 100;
 }
 
 li {
- color: white;
+ color:  #978b7b;
  text-decoration: none;
  list-style: none;
 }
@@ -51,8 +77,9 @@ nav li {
  font-weight: bold;
  font-size: 0.8em;
  display: flex;
- align-items: center;
+ align-items: flex-end;
  justify-content: center;
+ color: white;
 }
 
 nav li:nth-child(1) {
@@ -70,6 +97,7 @@ nav li:nth-child(3) {
 nav ul {
  display: flex;
  justify-content: flex-end;
+ margin-right: 0px; 
 }
 
 #logoWrapper {
@@ -161,8 +189,15 @@ button {
 
 /*start of output section */
 #output {
-  height: auto;
+  height: 25%;
+  max-height: 300px;
   min-height: 130px;
+  position: fixed;
+  background-color: white;
+  z-index: 900;
+  width: 100%;
+  margin-top: -50px;
+  
 }
 
 #blenderLarge {
@@ -170,7 +205,11 @@ button {
   height: 130px;
   float: left;
   margin-left: 25px;
-}
+  margin-top: 25px;
+ }
+
+
+/*start Ingredient selected list*/
 
 #selectedList {
   width: 90%;
@@ -179,17 +218,21 @@ button {
   border: 1px solid #afa497;
   height: 100px;
   border-radius: 20px;
-  top: 45px;
+  top: 225px;
+  color: black;
+
 }
 
 #selectedList h2 {
-  margin-left: 25px;
-  margin-top: -10px;
+  float-right;
+  margin-right: 0;
+  margin-top: 10px;
   color: #afa497;
   background-color: white;
   width: 110px;
   font-size: .9em;
   text-align: center;
+  z-index: 70;
 }
 
 .userInput {
@@ -227,6 +270,7 @@ footer ul {
 footer li {
   padding-right: 10px;
   padding-top: 4px;
+  color: white;
 }
 
 #byline {
@@ -237,28 +281,10 @@ footer li {
   color: #978b7b;
 }
 
-/*TODO: Remove this rule - just for testing because recipesContent wasn't fully visible at time of testing*/
-#recipesContent {
-  margin-left: 100px;
-}
-
 #selectedList li{
   color: #978b7b;
 }
 
-/*nutrition label*/
-#nutritionFacts{
-  position: relative;
-  margin-left: 120px;
-  display: flex;
-  flex-direction: column;
-  font-size: .8em;
-  border: 1px solid black;
-  padding: 10px;
-  height: 225px;
-  width: 150px;
-  line-height: .2em;
-}
 
 #title{
   font-size: 1.4em;
@@ -266,7 +292,204 @@ footer li {
   color: black;
 }
 
-#map {
-  height: 500px;
-  width: 600px;
+  
+#addRecipe{
+  visibility: hidden;
 }
+
+
+
+/*about content page begins here*/
+#aboutContent{
+  background-image: url('/images/blenderLarge.png');
+  background-repeat: no-repeat;
+  background-size: 75px;
+  background-position-x: 20px;
+  opacity: .7;
+  position: relative;
+  z-index: 2;
+}
+
+
+#aboutContentWrapper{
+   min-width: 250px;
+   max-width: 650px;
+ }
+#aboutContent h2{
+  color: #12a89d;
+  font-size: 3em;
+  line-height: 1em;
+  padding-bottom: 25px;
+  margin-left: 120px;
+}
+#aboutContent h3{
+  color:  white;
+  font-size: 1.6em;
+ }
+#aboutContent li{
+  list-style: circle;
+  margin-left: 120px; 
+}
+#logoText img{
+  width: 140px;
+  height: auto;
+ 
+}
+#aboutMiddleText{
+   margin-left: 35px;
+}
+#aboutZinger{
+  font-size: 2em;
+  margin-top: -25px;
+  padding-bottom: 10px;
+}
+
+#about2ndHalf{
+  background-color: #12a89d;
+} 
+#about2ndHalf p, #about2ndHalf h3{
+  margin-left: 35px;  
+}
+
+
+/*saved recipe page*/
+#recipesContent{
+  background-color: #12a89d;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding-left: 25px;
+  top: 100px;
+  padding-top: 40px;
+  min-width: 250px;
+  z-index: 1;
+}
+#recipesContent h2{
+  color: white;
+  font-size: 1.5em;
+}
+#recipeFilter{
+  float:right;
+  position: absolute;
+  right: 1.4em;
+  top: 48px;
+  font-size: .7em;
+}
+.recipeCardImg{
+  width: 85%;
+  height: auto;
+  margin: 0 auto;
+  min-width: 250px;
+  max-width: 400px;
+ }
+ 
+#recipesContent aside p{
+  color: white;
+  font-size: .7em;
+  text-align: center;
+}
+
+.recipeCardImgWrapper{
+  text-align: center;
+  margin-top: -25px;
+}
+.recipeLabel{
+  position: relative;
+  left: 0px;  
+  color: #12a89d;
+  font-size: 1em;
+  font-weight: bold;
+  padding-bottom: 5px;
+ }
+.recipeTextWrapper{
+ float: left;
+ width: 50%;
+ margin-left: 4.6em;  
+ text-align: left;
+ position: relative;
+ top: 50px;
+ color: #978b7b;
+ font-size: .8em;
+ line-height: 1em;
+}
+
+#sectionBreak{
+  color: #ff9000;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+#sectionBreak h4{
+  background-color: #12a89d;
+  position: relative;
+}
+
+#highlightedCard{
+  margin-top: 20px;
+}
+.recipeText{
+  overflow-y: scroll;
+}
+
+
+/*start of find page*/
+#findContent{
+  background-color: #12a89d;
+  height: 400px;
+  width: 100%;
+  text-align: center;
+  padding-left: 15px;
+  border-bottom: 2px solid #afa497;
+  min-width: 250px;
+}
+#mapWrapper{
+  width: 100%;
+  height: 100%;
+  
+}
+#map {
+  width: 350px;
+  min-width: 250px;
+  height: 300px; 
+  margin: 0 auto;
+}
+
+#findContent form{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 10px;
+  width: 100%;
+  padding-top: 5px;
+  margin-top: -100px;
+ }
+ #findContent form p{
+   font-size: .75em;
+ }
+#addressInput{
+  width: 70%;
+  margin-top: 5px;
+  max-width: 450px;
+}
+
+#addressSubmit {
+  background-color: #ff9000;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 4px 0 4px 0;
+  width: 100px;
+  margin-bottom: 15px;
+  text-align: center;
+ }
+ #searchResults wrapper{
+   color: #12a89d;
+   font-weight: bold;
+   font-size: 1.5em;
+   background-color: white;
+ }
+ #searchResults li{
+   color: #978b7b;
+ }
+ 
+

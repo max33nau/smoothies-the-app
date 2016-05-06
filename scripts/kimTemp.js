@@ -1,115 +1,82 @@
-//(function(module){     //establishing iffe
-  
-  // Ingredient.allData = [];
-  
-  // //object constructor  
-  // function Ingredient (obj){
-  //   for (key in obj) this [key] = obj[key];
-  // };
-  
-  
-  // //push ingredients from raw data into array
-  // Ingredient.populateArray = function(ingData){
-  //   ingData.forEach(function(ele){
-  //     Ingredient.allData.push(new Ingredient(ele));
-  //   });
-  // };
-  
-  // //request ingredient data from local storage or from json file
-  // if (localStorage.ingredientData){
-  //   Ingredient.populateArray(
-  //     JSON.parse(localStorage.getItem('ingredientData'))
-  //   );
-  // } else {
-  //   $.getJSON('dataFiles/ingred.json').done(function(data){
-  //     Ingredient.populateArray(data);
-  //     localStorage.setItem('ingredientData',JSON.stringify(data));
-  //   }).fail(console.log('alertUser'));
-  // };
-  
-  
-  // //push data into accordion sections
-  // var $fruits = $('#fruits');
-  // var $accordion = $('#accordion');
-  // var accordionIds =  //"'#"+Ingredient.allData[0].foodGroup+"'"
-    
-  //   //the below section is supposed to do this dynamically...still in process, and will be run in the if(local storage) expression above.
-    
-  //   // Ingredient.allData.map(function(ele){
-  //   //   $accordion.find($('#fats')).append('<li>'+ele.name+'</li>') === $('#fats')
-  //   //    if($accordion.find("$('#"+ ele.foodGroup + "')").append('<li>'+ele.name+'</li>') === $('#fats')){
-  //     //    console.log(ele.foodGroup); 
-  //     //  } else {console.log(false);}
-  //   // });
-    
-  //   //  var options, template = Handlebars.compile($('ingredTemplate').text());
-  //   //    options = Ingredient. 
-  //   //     return Ingredient.name;
-    
-  // $accordion.on('click','li',function(){
-  //   //first thing: append name template to selectedList 'ul'
-  //   //sencond thing: append nutrition data and add to current balances (reduce)
-  //     $('#selectedList ul').append('<li>'+ this.name+ '</li>');
-  //    console.log(this); 
-  // })
-    
+
+  //  var $accordion = $('#accordion');  //collect ingr id on-click
+  //   var $selectedListLI = $('#selectedList li');  
+  //   var $selectedList = $('#selectedList ul');  //place to append new <li>s
+  //    var $selectedTemplate =$('#selectedTemplate');
+  //  var compiledNutrientTemplate = Handlebars.compile($selectedTemplate.html());
+   
  
-  //   //stil in process!!!
-  // Ingredient.allIngredients = function() {
-  //   return Ingredient.allData.map(function(ingr){
-  //     return {ingrName: ingr.name, ingrFoodGroup: ingr.foodGroup} ;
+  // $accordion.on('click','li',function(event){   
+  //     var idName = $(this)[0].className;
+  //     var foodName = ($(this).find('.foodName').text());
+  //     var unique = false;
+  //     var listArray=[];  //this array will hold selected ingred id's 
+  //     var portionCount = {};
+  //     console.log("$selectedListLI= "+ $selectedListLI.class);
+  //      $('#ingredients li').each(function(){  //these are <li>s created dynamically 
+  //       listArray.push(Number($(this)[0].className));
+  //       var $foodPortions = $(this).find('.portionCount'); //portion count is class gerenated dynamically
+       
+  //       var portionCount = Number($foodPortions.text());
+  //       console.log(portionCount);
+  //        console.log("doIhaveclassname: "+$(this)[0].className);
+  //        console.log("doIhaveid?:  "+idName);
+  //        console.log("list array = "+ listArray)
+  //       if(idName == $(this)[0].className){
+  //         portionCount++;
+  //         unique = true;
+  //       }
+  //       portionCount[Number($(this)[0].className)] = portionCount;
+  //       $foodPortions.text(portionCount);
+       
+  //     });
+      
+  //     if(unique == false){
+  //       listArray.push(Number($(this)[0].className));
+  //       var updatedListItem = '<li class='+idName+'> <span class="foodName">'+foodName+'</span> <br>Number Of Portions:<span class="portionCount"> 1 </span> </li>';
+  //       portionCount[idName] = 1;
+  //       $('#ingredients').append(
+  //         updatedListItem
+  //        ); 
+  //     }
+  //     evaluateFinalNutrients(listArray, portionCount);
+  //     // console.log("list array = "+ portionCount)
   //   });
-  // }; 
-          
- 
-  
-  // var populateAccordion = function(ingr){
-  //   var template = Handlebars.compile($('#ingredTemplate').text());
-  //   return template(ingr);   
-  // };
-  
-  // Ingredient.allData.forEach(function(a){
-  //   $fruits.append(populateAccordion(Ingredient.name));
     
-  // });
+  //   function evaluateFinalNutrients(listArray, portionCount){
+  //      $('nutritionFacts').empty();
+  //     var finalNutrientsValue = {};
+  //     var reducedArray = Ingredient.all.filter(function(object){
+  //       if(listArray.indexOf(object.id) > -1) {
+  //         console.log("listarray: "+listArray);
+  //         return object;
+  //       }
+  //     });
+      
+  //     reducedArray.forEach(function(object){
+  //       console.log("reduced array = "+reducedArray);
+  //       object.nutrient.forEach(function(nutrientObject){
+  //         var newObject = {};
+  //         if(!finalNutrientsValue[nutrientObject.name]){
+  //           newObject.name = nutrientObject.name;
+  //           newObject.unit = nutrientObject.unit;
+  //           var total = Number(nutrientObject.value) * portionCount[object.id];
+  //           newObject.value = total;
+  //           finalNutrientsValue[nutrientObject.name] = newObject;
+  //         }else {
+  //           finalNutrientsValue[nutrientObject.name].value +=Number(nutrientObject.value) * portionCount[object.id];
+  //         }
+  //       });
+  //     });
+  //     reducedArray[0].nutrient.forEach(function(nutrientObject){
+  //       $('nutritionFacts').append(
+  //       compiledNutrientTemplate(finalNutrientsValue[nutrientObject.name])
+  //     );
+  //     });
+  //   }
   
-
-
-
-
-
-
-
-//   module.Ingredient = Ingredient;
-// })(window);  //end iffe and assign to global
-
-
-
-
-
-
-//********here are the view items for main page******
-//IngredObj.finalArray is where data is housed.
-
-//object constructor from array
-// function Ingredient (opts){
-//   this.name: opts.name;
-  
-// }
-
-
-
-// var ingredients;
-
-
-
-// var $accordion = $('accordion');
-
-
-
-
-// populateAccordion = function(ingredient){
-//   var template = Handlebars.compile($('ingredTemplate')).text();
-//   return template(ingredient);
-// };
-// $accordion.append(render(IngredObj.finalArray));
+  //   $('#btnReset').on('click',function(){
+  //     $('#nutritionFacts').empty();
+  //     $('ingredients').empty();
+  //   });
+    
