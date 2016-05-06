@@ -1,8 +1,8 @@
 (function(module) {
 
   var createView = {};
-  
-  
+
+
   //object to store current recipe ingredients and nutrition information
   createView.currentRecipe = {};
 
@@ -14,24 +14,25 @@
     dataArray.forEach(function(ingr){
       $('#'+ ingr.foodGroup ).append(compiled(ingr));    
     });
-  };    
+  };
 
 
   //set event listeners for accordion drop-down options (ingredients)
   createView.handleAccordion = function() {};
 
- 
+
   //set event listeners for each selected ingredient's X and quantity multiplier
   createView.handleSelectedIngredients = function() {
+
  
-   var $accordion = $('#accordion');  //collect ingr id on-click
+    var $accordion = $('#accordion');  //collect ingr id on-click
     var $selectedListLI = $('#selectedList li');  
     var $selectedList = $('#selectedList ul');  //place to append new <li>s
-     var $selectedTemplate =$('#selectedTemplate');
-   var compiledNutrientTemplate = Handlebars.compile($selectedTemplate.html());
+    var $selectedTemplate =$('#selectedTemplate');
+    var compiledNutrientTemplate = Handlebars.compile($selectedTemplate.html());
    
  
-  $accordion.on('click','li',function(event){   
+    $accordion.on('click','li',function(event){   
       var idName = $(this)[0].className;
       var foodName = ($(this).find('.foodName').text());
       var unique = false;
@@ -40,30 +41,30 @@
       $('#ingredients li').each(function(){  //these are <li>s created dynamically 
         listArray.push(Number($(this)[0].className));
         var $foodPortions = $(this).find('.portionCount'); //portion count is class gerenated dynamically
-       
+        
         var portionCount = Number($foodPortions.text());
-         if(idName == $(this)[0].className){
+        if(idName == $(this)[0].className){
           portionCount++;
           unique = true;
         }
         portionCountObj[Number($(this)[0].className)] = portionCount;
         $foodPortions.text(portionCount);
-       });
-      
+      });
+        
       if(unique == false){
         listArray.push(Number($(this)[0].className));
         var updatedListItem = '<li class='+idName+'> <span class="foodName">'+foodName+'</span> <br>Number Of Portions:<span class="portionCount"> 1 </span> </li>';
         portionCountObj[idName] = 1;
         $('#ingredients').append(
           updatedListItem
-         ); 
+          ); 
       }
       evaluateFinalNutrients(listArray, portionCountObj);
-      
+        
     });
-    
+      
     function evaluateFinalNutrients(listArray, portionCountObj){
-       $('#nutritionFacts').empty();
+      $('#nutritionFacts').empty();
       var finalNutrientsValue = {};
       var reducedArray = Ingredient.all.filter(function(object){
         if(listArray.indexOf(object.id) > -1) {
@@ -97,7 +98,7 @@
   
     $('#btnReset').on('click',function(){
       $('#nutritionFacts').empty();
-      $('ingredients').empty();
+      $('#ingredients li').hide();
     });
       
     
@@ -118,9 +119,7 @@
      
   };
  
-  
-       
-
+ 
   //when ingredient added or removed or quantity changed, update ingredients AND nutrition info
   createView.updateCurrentRecipe = function() {};
 
@@ -134,15 +133,14 @@
   createView.hideFullLabel = function() {};
 
   //event handler for Save Recipe button
-  createView.saveRecipe = function() {};
+  createView.saveRecipe = function() {
+    
+    
+  };
 
   //deselect all ingredients, set quantities to 0
   createView.resetPage = function() {
-    var $btnReset = $('#btnReset');
     
-    $btnReset.on('click',function() {
-      ///empty selectObject {}
-    });
   };
 
   //show Create section, hiding all other "page" sections
@@ -157,13 +155,16 @@
 
 
 //temporary hide to keep clean workspace REMOVE! WHEN COMPLETE
+ 
+  
+ 
   $('#aboutContent').hide();
   $('#recipesContent').hide();
+  $('#findContent').hide();
 
+  
   createView.handleSelectedIngredients();
   createView.resetPage();
 
   module.createView = createView;
 }(window));
-
-

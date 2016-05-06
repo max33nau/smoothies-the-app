@@ -144,6 +144,7 @@
   //show Recipes section, hiding all other "page" sections
   recipesView.renderPage = function() {
     $('#recipesContent').show().siblings().hide();
+    Recipe.retrieveAll();
     recipesView.showRecipePreviews();
     recipesView.populateFilters();
     recipesView.handleFilters();
@@ -151,7 +152,7 @@
   };
 
 /*******!!!!!!!*****TODO: DELETE THIS CALL!!! FOR TESTING ONLY!!!******!!!!!!!********/
-  recipesView.renderPage();
+  // recipesView.renderPage();
 
   module.recipesView = recipesView;
 }(window));

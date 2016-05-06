@@ -29,13 +29,13 @@
   };
 
   //use html5sql.js, vis-à-vis webDB, to insert row in recipes table for given Recipe
-  Recipe.insertTableRow = function(callback) {
+  Recipe.insertTableRow = function(recipe, callback) {
     webDB.execute(
       [
         {
           'sql': 'INSERT INTO recipes (name, ingredients, nutritionFacts) ' +
           'VALUES (?, ?, ?);',
-          'data': [this.name, this.ingredients, this.nutritionFacts]
+          'data': [recipe.name, recipe.ingredients, recipe.nutritionFacts]
         }
       ],
       callback
