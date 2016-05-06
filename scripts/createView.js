@@ -36,44 +36,37 @@
       var foodName = ($(this).find('.foodName').text());
       var unique = false;
       var listArray=[];  //this array will hold selected ingred id's 
-      var portionCount = {};
-      console.log("$selectedListLI= "+ $selectedListLI.class);
-       $('#ingredients li').each(function(){  //these are <li>s created dynamically 
+      var portionCountObj = {};
+      $('#ingredients li').each(function(){  //these are <li>s created dynamically 
         listArray.push(Number($(this)[0].className));
         var $foodPortions = $(this).find('.portionCount'); //portion count is class gerenated dynamically
        
         var portionCount = Number($foodPortions.text());
-        // console.log(portionCount);
-        //  console.log("doIhaveclassname: "+$(this)[0].className);
-        //  console.log("doIhaveid?:  "+idName);
-        //  console.log("list array = "+ listArray)
-        if(idName == $(this)[0].className){
+         if(idName == $(this)[0].className){
           portionCount++;
           unique = true;
         }
-        portionCount[Number($(this)[0].className)] = portionCount;
+        portionCountObj[Number($(this)[0].className)] = portionCount;
         $foodPortions.text(portionCount);
-       
-      });
+       });
       
       if(unique == false){
         listArray.push(Number($(this)[0].className));
         var updatedListItem = '<li class='+idName+'> <span class="foodName">'+foodName+'</span> <br>Number Of Portions:<span class="portionCount"> 1 </span> </li>';
-        portionCount[idName] = 1;
+        portionCountObj[idName] = 1;
         $('#ingredients').append(
           updatedListItem
          ); 
       }
-      evaluateFinalNutrients(listArray, portionCount);
-      // console.log("list array = "+ portionCount)
+      evaluateFinalNutrients(listArray, portionCountObj);
+      
     });
     
-    function evaluateFinalNutrients(listArray, portionCount){
+    function evaluateFinalNutrients(listArray, portionCountObj){
        $('#nutritionFacts').empty();
       var finalNutrientsValue = {};
       var reducedArray = Ingredient.all.filter(function(object){
         if(listArray.indexOf(object.id) > -1) {
-          // console.log("listarray: "+listArray);
           return object;
         }
       });
@@ -84,14 +77,16 @@
           if(!finalNutrientsValue[nutrientObject.name]){
             newObject.name = nutrientObject.name;
             newObject.unit = nutrientObject.unit;
-            var total = Number(nutrientObject.value) * portionCount[object.id];
+            var total = Number(nutrientObject.qty) * portionCountObj[object.id]; 
             newObject.value = total;
+           
             finalNutrientsValue[nutrientObject.name] = newObject;
           }else {
-            finalNutrientsValue[nutrientObject.name].value +=Number(nutrientObject.value) * portionCount[object.id];
+            finalNutrientsValue[nutrientObject.name].value +=Number(nutrientObject.qty) * portionCountObj[object.id];
           }
         });
       });
+     
       reducedArray[0].nutrient.forEach(function(nutrientObject){
         $('#nutritionFacts').append(
         compiledNutrientTemplate(finalNutrientsValue[nutrientObject.name])
@@ -120,7 +115,7 @@
       // $('#Vitamin A').text(selectObject['Vitamin A']);
       // $('#Vitamin C').text(selectObject['Vitamin C']);
       
-      // console.log(selectObject);
+     
   };
  
   
