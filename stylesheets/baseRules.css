@@ -287,8 +287,9 @@ footer li {
 /*about content page begins here*/
 #aboutContent{
   background-image: url('/images/blenderLarge.png');
-  background-repeat: repeat-y;
-  background-size: 99px 182px;
+  background-repeat: no-repeat;
+  background-size: 75px;
+  background-position-x: 20px;
   opacity: .7;
   position: relative;
   z-index: 2;
@@ -296,12 +297,43 @@ footer li {
 
 
 #aboutContentWrapper{
-  position: relative;
-  max-width: 500px;
-  margin-left: 105px;
-}
+   min-width: 250px;
+   max-width: 650px;
+ }
 #aboutContent h2{
   color: #12a89d;
+  font-size: 3em;
+  line-height: 1em;
+  padding-bottom: 25px;
+  margin-left: 120px;
+}
+#aboutContent h3{
+  color:  white;
+  font-size: 1.6em;
+ }
+#aboutContent li{
+  list-style: circle;
+  margin-left: 120px; 
+}
+#logoText img{
+  width: 140px;
+  height: auto;
+ 
+}
+#aboutMiddleText{
+   margin-left: 35px;
+}
+#aboutZinger{
+  font-size: 2em;
+  margin-top: -25px;
+  padding-bottom: 10px;
+}
+
+#about2ndHalf{
+  background-color: #12a89d;
+} 
+#about2ndHalf p, #about2ndHalf h3{
+  margin-left: 35px;  
 }
 
 

@@ -156,9 +156,9 @@
  
   
  
-  $('#aboutContent').hide();
+  // $('#aboutContent').hide();
   $('#recipesContent').hide();
-  // $('#findContent').hide();
+  $('#findContent').hide();
   $('#createContent').hide();
 
   
